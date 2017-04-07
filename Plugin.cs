@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Net;
+using System.Web;
 using System.Xml;
 using System.IO;
 using System.Threading;
@@ -49,7 +50,7 @@ namespace ZTranslation
 
 			ModifyProxy.BeforeResponse = (session, data) =>
 			{
-				#region Font patch and api_start2 watching
+				#region Font patch
 				if (session.Request.PathAndQuery.StartsWith("/kcs/resources/swf/font.swf"))
 				{
 					var origin_hash = new byte[] { 0xca, 0xf9, 0xa2, 0x30, 0xfe, 0x46, 0x8a, 0xfc, 0x3d, 0x23, 0x5b, 0xb8, 0xd2, 0xd8, 0x7e, 0x89 };
@@ -68,35 +69,82 @@ namespace ZTranslation
 						)
 					);
 				}
-				else if (session.Request.PathAndQuery != "/kcsapi/api_start2") return data;
 				#endregion
 
 				try
 				{
-					Func<string, string, string> getTranslation = (x, y) => Translators[x]?.GetTranslation(y) ?? y;
-
-					var raw_content = Encoding.UTF8.GetString(data).Substring("svdata=".Length);
-					dynamic svdata = JObject.Parse(raw_content);
-
+					Func<string, string, string> getTranslation = (x, y) =>
 					{
-						// Ship names
-						foreach (var x in svdata.api_data.api_mst_ship)
-						{
-							x.api_name = getTranslation("ShipName", x.api_name.ToString());
-							x.api_getmes = getTranslation("ShipGetMessage", x.api_getmes.ToString());
-						}
+						var output = Translators.ContainsKey(x)
+							? (Translators[x]?.GetTranslation(y) ?? y)
+							: y;
 
-						// Slotitem names
-						foreach (var x in svdata.api_data.api_mst_slotitem)
-						{
-							x.api_name = getTranslation("EquipmentName", x.api_name.ToString());
-							x.api_info = getTranslation("EquipmentInfo", x.api_info.ToString());
-						}
+						if (output == y) System.Diagnostics.Debug.WriteLine("{0} => {1}", x, y);
+						return output;
+					};
+
+					var serializeOption = new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeNonAscii };
+					string raw_content = null;
+					dynamic svdata;
+
+					switch (session.Request.PathAndQuery)
+					{
+						case "/kcsapi/api_start2":
+							raw_content = Encoding.UTF8.GetString(data).Substring("svdata=".Length);
+							svdata = JObject.Parse(raw_content);
+							{
+								// Ship names
+								foreach (var x in svdata.api_data.api_mst_ship)
+								{
+									if (x.api_name != null) x.api_name = getTranslation("ShipName", x.api_name.ToString());
+									if (x.api_getmes != null) x.api_getmes = getTranslation("ShipGetMessage", x.api_getmes.ToString());
+								}
+
+								// Slotitem names
+								foreach (var x in svdata.api_data.api_mst_slotitem)
+								{
+									if (x.api_name != null) x.api_name = getTranslation("EquipmentName", x.api_name.ToString());
+									if (x.api_info != null) x.api_info = getTranslation("EquipmentInfo", x.api_info.ToString());
+								}
+
+								// Slotitem Type names
+								foreach (var x in svdata.api_data.api_mst_slotitem_equiptype)
+									if (x.api_name != null) x.api_name = getTranslation("EquipmentType", x.api_name.ToString());
+								// Ship Type names
+								foreach (var x in svdata.api_data.api_mst_stype)
+									if (x.api_name != null) x.api_name = getTranslation("ShipType", x.api_name.ToString());
+							}
+							raw_content = JsonConvert.SerializeObject(svdata, serializeOption);
+							data = Encoding.UTF8.GetBytes("svdata=" + raw_content);
+							break;
+
+						case "/kcsapi/api_get_member/picture_book":
+							var s_type = HttpUtility.ParseQueryString(session.Request.BodyAsString)["api_type"];
+							int n_type = 1;
+							int.TryParse(s_type, out n_type);
+
+							raw_content = Encoding.UTF8.GetString(data).Substring("svdata=".Length);
+							svdata = JObject.Parse(raw_content);
+							{
+								// Ship names
+								foreach (var x in svdata.api_data.api_list)
+								{
+									if (n_type == 1)
+									{
+										if (x.api_name != null) x.api_name = getTranslation("ShipName", x.api_name.ToString());
+										if (x.api_info != null) x.api_info = getTranslation("ShipGetMessage", x.api_getmes.ToString());
+									}
+									else
+									{
+										if (x.api_name != null) x.api_name = getTranslation("EquipmentName", x.api_name.ToString());
+										if (x.api_info != null) x.api_info = getTranslation("EquipmentInfo", x.api_info.ToString());
+									}
+								}
+							}
+							raw_content = JsonConvert.SerializeObject(svdata, serializeOption);
+							data = Encoding.UTF8.GetBytes("svdata=" + raw_content);
+							break;
 					}
-
-					var opt = new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeNonAscii };
-					raw_content = JsonConvert.SerializeObject(svdata, opt);
-					data = Encoding.UTF8.GetBytes("svdata=" + raw_content);
 				}
 				catch { }
 
@@ -127,6 +175,8 @@ namespace ZTranslation
 				{
 					string xml = "";
 
+					//try
+					{
 						HttpWebRequest rq = WebRequest.Create(urlBase + url) as HttpWebRequest;
 						rq.Timeout = 5000;
 						HttpWebResponse response = rq.GetResponse() as HttpWebResponse;
@@ -134,14 +184,18 @@ namespace ZTranslation
 						using (var reader = new StreamReader(response.GetResponseStream()))
 							xml = reader.ReadToEnd();
 
-						var translator = new XmlTranslator(xml, "/Texts/Text", true);
+						var translator = new XmlTranslator(xml, "/Texts/Text");
 						Translators.TryAdd(name, translator);
+					}
+					//catch { }
 				}).Start();
 			};
 
 			Translators = new ConcurrentDictionary<string, XmlTranslator>();
 			Translators.TryAdd("ShipName", ShipTranslator.Instance);
 			Translators.TryAdd("EquipmentName", EquipmentTranslator.Instance);
+			Translators.TryAdd("EquipmentType", EquipmentTypeTranslator.Instance);
+			Translators.TryAdd("ShipType", ShipTypeTranslator.Instance);
 
 			RemoteLoader("ShipGetMessage", "ShipGetMessage.xml");
 			RemoteLoader("EquipmentInfo", "EquipmentInfo.xml");
@@ -159,43 +213,33 @@ namespace ZTranslation
 			{
 				table = new Dictionary<string, string>();
 			}
-			public XmlTranslator(string xmlPath, string textSelector = "/Texts/Text", bool fromString = false) : this()
+			public XmlTranslator(string xmlPath, string textSelector = "/Texts/Text") : this()
 			{
-				if(fromString)
-					this.LoadXml(xmlPath, textSelector);
-				else
-					this.Load(xmlPath, textSelector);
+				this.Load(xmlPath, textSelector);
+			}
+
+			private string ValueAdjust(string Value) => Value
+				.Replace("<br />", "<br>")
+				.Replace("&amp;", "&");
+			private void LoadTexts(XmlDocument doc, string textSelector)
+			{
+				var nodes = doc.SelectNodes(textSelector);
+				foreach (XmlNode node in nodes)
+				{
+					var jp = ValueAdjust(node["JP-Name"].InnerXml);
+					var tr = ValueAdjust(node["TR-Name"].InnerXml);
+
+					if (table.ContainsKey(jp)) continue;
+					table.Add(jp, tr);
+				}
 			}
 
 			public void Load(string xmlPath, string textSelector)
 			{
 				XmlDocument doc = new XmlDocument();
-				doc.Load(xmlPath);
-
-				var nodes = doc.SelectNodes(textSelector);
-				foreach(XmlNode node in nodes)
-				{
-					var jp = node["JP-Name"].InnerXml;
-					var tr = node["TR-Name"].InnerXml;
-
-					if (table.ContainsKey(jp)) continue;
-					table.Add(jp, tr);
-				}
-			}
-			public void LoadXml(string xmlData, string textSelector)
-			{
-				XmlDocument doc = new XmlDocument();
-				doc.LoadXml(xmlData);
-
-				var nodes = doc.SelectNodes(textSelector);
-				foreach (XmlNode node in nodes)
-				{
-					var jp = node["JP-Name"].InnerXml;
-					var tr = node["TR-Name"].InnerXml;
-
-					if (table.ContainsKey(jp)) continue;
-					table.Add(jp, tr);
-				}
+				if(xmlPath.StartsWith("<?")) doc.LoadXml(xmlPath);
+				else doc.Load(xmlPath);
+				LoadTexts(doc, textSelector);
 			}
 
 			public string GetTranslation(string Name) => table.ContainsKey(Name) ? table[Name] : Name;
@@ -211,6 +255,18 @@ namespace ZTranslation
 			public static EquipmentTranslator Instance => new EquipmentTranslator();
 
 			public EquipmentTranslator() : base(Path.Combine(TranslationsDir, "Equipment.xml"), "/Equipment/Item") { }
+		}
+		private class EquipmentTypeTranslator : XmlTranslator
+		{
+			public static EquipmentTypeTranslator Instance => new EquipmentTypeTranslator();
+
+			public EquipmentTypeTranslator() : base(Path.Combine(TranslationsDir, "EquipmentTypes.xml"), "/EquipmentTypes/Item") { }
+		}
+		private class ShipTypeTranslator : XmlTranslator
+		{
+			public static ShipTypeTranslator Instance => new ShipTypeTranslator();
+
+			public ShipTypeTranslator() : base(Path.Combine(TranslationsDir, "ShipTypes.xml"), "/ShipTypes/Type") { }
 		}
 	}
 }
