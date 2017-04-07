@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using System.Net;
 using System.Xml;
 using System.IO;
 using System.Threading;
@@ -124,12 +125,17 @@ namespace ZTranslation
 				var urlBase = "https://raw.githubusercontent.com/WolfgangKurz/Z-Translation/master/Translations/";
 				new Thread(() =>
 				{
-					try
-					{
-						var translator = new XmlTranslator(urlBase + url);
+					string xml = "";
+
+						HttpWebRequest rq = WebRequest.Create(urlBase + url) as HttpWebRequest;
+						rq.Timeout = 5000;
+						HttpWebResponse response = rq.GetResponse() as HttpWebResponse;
+
+						using (var reader = new StreamReader(response.GetResponseStream()))
+							xml = reader.ReadToEnd();
+
+						var translator = new XmlTranslator(xml, "/Texts/Text", true);
 						Translators.TryAdd(name, translator);
-					}
-					catch { }
 				}).Start();
 			};
 
