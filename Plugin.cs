@@ -75,10 +75,8 @@ namespace ZTranslation
 				{
 					Func<string, string, string> getTranslation = (x, y) =>
 					{
-						var output = Translators.ContainsKey(x)
-							? (Translators[x]?.GetTranslation(y) ?? y)
-							: y;
-
+						if (y.Length == 0) return y;
+						var output = Translators.ContainsKey(x) ? (Translators[x]?.GetTranslation(y) ?? y) : y;
 						if (output == y) System.Diagnostics.Debug.WriteLine("{0} => {1}", x, y);
 						return output;
 					};
@@ -113,6 +111,20 @@ namespace ZTranslation
 								// Ship Type names
 								foreach (var x in svdata.api_data.api_mst_stype)
 									if (x.api_name != null) x.api_name = getTranslation("ShipType", x.api_name.ToString());
+
+								// Furniture names
+								foreach (var x in svdata.api_data.api_mst_furniture)
+								{
+									if (x.api_title != null) x.api_title = getTranslation("FurnitureName", x.api_title.ToString());
+									if (x.api_description != null) x.api_description = getTranslation("FurnitureDescription", x.api_description.ToString());
+								}
+
+								// Useitem names
+								foreach (var x in svdata.api_data.api_mst_useitem)
+								{
+									if (x.api_name != null) x.api_name = getTranslation("UseItemName", x.api_name.ToString());
+									if (x.api_description != null) x.api_description[0] = getTranslation("UseItemDescription", x.api_description[0].ToString());
+								}
 							}
 							raw_content = JsonConvert.SerializeObject(svdata, serializeOption);
 							data = Encoding.UTF8.GetBytes("svdata=" + raw_content);
@@ -126,15 +138,14 @@ namespace ZTranslation
 							raw_content = Encoding.UTF8.GetString(data).Substring("svdata=".Length);
 							svdata = JObject.Parse(raw_content);
 							{
-								// Ship names
 								foreach (var x in svdata.api_data.api_list)
 								{
-									if (n_type == 1)
+									if (n_type == 1) // Ship
 									{
 										if (x.api_name != null) x.api_name = getTranslation("ShipName", x.api_name.ToString());
 										if (x.api_info != null) x.api_info = getTranslation("ShipGetMessage", x.api_getmes.ToString());
 									}
-									else
+									else if (n_type == 2) // Equipment
 									{
 										if (x.api_name != null) x.api_name = getTranslation("EquipmentName", x.api_name.ToString());
 										if (x.api_info != null) x.api_info = getTranslation("EquipmentInfo", x.api_info.ToString());
@@ -199,6 +210,10 @@ namespace ZTranslation
 
 			RemoteLoader("ShipGetMessage", "ShipGetMessage.xml");
 			RemoteLoader("EquipmentInfo", "EquipmentInfo.xml");
+			RemoteLoader("FurnitureName", "FurnitureName.xml");
+			RemoteLoader("FurnitureDescription", "FurnitureDescription.xml");
+			RemoteLoader("UseItemName", "UseItemName.xml");
+			RemoteLoader("UseItemDescription", "UseItemDescription.xml");
 		}
 
 		private static string TranslationsDir => Path.Combine(
