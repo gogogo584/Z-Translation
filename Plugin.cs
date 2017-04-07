@@ -131,6 +131,14 @@ namespace ZTranslation
 									if (x.api_name != null) x.api_name = getTranslation("PayItemName", x.api_name.ToString());
 									if (x.api_description != null) x.api_description = getTranslation("PayItemDescription", x.api_description.ToString());
 								}
+
+								// MapArea
+								foreach (var x in svdata.api_data.api_mst_payitem)
+								{
+									if (x.api_name != null) x.api_name = getTranslation("MapArea", x.api_name.ToString());
+									if (x.api_opename != null) x.api_opename = getTranslation("MapArea", x.api_opename.ToString());
+									if (x.api_opeinfo != null) x.api_opeinfo = getTranslation("MapArea", x.api_opeinfo.ToString());
+								}
 							}
 							raw_content = JsonConvert.SerializeObject(svdata, serializeOption);
 							data = Encoding.UTF8.GetBytes("svdata=" + raw_content);
@@ -222,6 +230,7 @@ namespace ZTranslation
 			RemoteLoader("UseItemDescription", "UseItemDescription.xml");
 			RemoteLoader("PayItemName", "PayItemName.xml");
 			RemoteLoader("PayItemDescription", "PayItemDescription.xml");
+			RemoteLoader("MapArea", "MapArea.xml");
 		}
 
 		private static string TranslationsDir => Path.Combine(
