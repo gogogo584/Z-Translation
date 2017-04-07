@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Xml;
 using System.IO;
+using System.Threading;
 
 using Nekoxy;
 using System.Reactive.Linq;
@@ -36,13 +38,6 @@ namespace ZTranslation
 
 		public void Initialize()
 		{
-			var r = new Random();
-
-			KanColleClient.Current.Proxy.api_start2.TryParse<kcsapi_start2>().Subscribe(s =>
-			{
-				
-			});
-
 			bool started = false;
 			KanColleClient.Current.Proxy.SessionSource.Where(x => !started).Subscribe(x =>
 				{
@@ -53,6 +48,7 @@ namespace ZTranslation
 
 			ModifyProxy.BeforeResponse = (session, data) =>
 			{
+				#region Font patch and api_start2 watching
 				if (session.Request.PathAndQuery.StartsWith("/kcs/resources/swf/font.swf"))
 				{
 					var origin_hash = new byte[] { 0xca, 0xf9, 0xa2, 0x30, 0xfe, 0x46, 0x8a, 0xfc, 0x3d, 0x23, 0x5b, 0xb8, 0xd2, 0xd8, 0x7e, 0x89 };
@@ -72,20 +68,29 @@ namespace ZTranslation
 					);
 				}
 				else if (session.Request.PathAndQuery != "/kcsapi/api_start2") return data;
+				#endregion
 
 				try
 				{
+					Func<string, string, string> getTranslation = (x, y) => Translators[x]?.GetTranslation(y) ?? y;
+
 					var raw_content = Encoding.UTF8.GetString(data).Substring("svdata=".Length);
 					dynamic svdata = JObject.Parse(raw_content);
 
 					{
 						// Ship names
 						foreach (var x in svdata.api_data.api_mst_ship)
-							x.api_name = ShipTranslator.GetTranslation(x.api_name.ToString());
+						{
+							x.api_name = getTranslation("ShipName", x.api_name.ToString());
+							x.api_getmes = getTranslation("ShipGetMessage", x.api_getmes.ToString());
+						}
 
 						// Slotitem names
 						foreach (var x in svdata.api_data.api_mst_slotitem)
-							x.api_name = EquipmentTranslator.GetTranslation(x.api_name.ToString());
+						{
+							x.api_name = getTranslation("EquipmentName", x.api_name.ToString());
+							x.api_info = getTranslation("EquipmentInfo", x.api_info.ToString());
+						}
 					}
 
 					var opt = new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeNonAscii };
@@ -99,6 +104,8 @@ namespace ZTranslation
 			KanColleSettings.EnableTranslations.Value = false;
 			KanColleClient.Current.Translations.EnableTranslations = false;
 
+			PrepareTranslators();
+
 			var Server = new SafeTcpServer(ProxyPort, false);
 			Server.Start(ModifyProxy.CreateProxy);
 
@@ -109,23 +116,57 @@ namespace ZTranslation
 			Grabacr07.KanColleViewer.Application.Current.Exit += (s, e) => Server.Shutdown();
 		}
 
+		private ConcurrentDictionary<string, XmlTranslator> Translators { get; set; }
+		private void PrepareTranslators()
+		{
+			Action<string, string> RemoteLoader = (name, url) =>
+			{
+				var urlBase = "https://raw.githubusercontent.com/WolfgangKurz/Z-Translation/master/Translations/";
+				new Thread(() =>
+				{
+					try
+					{
+						var translator = new XmlTranslator(urlBase + url);
+						Translators.TryAdd(name, translator);
+					}
+					catch { }
+				}).Start();
+			};
+
+			Translators = new ConcurrentDictionary<string, XmlTranslator>();
+			Translators.TryAdd("ShipName", ShipTranslator.Instance);
+			Translators.TryAdd("EquipmentName", EquipmentTranslator.Instance);
+
+			RemoteLoader("ShipGetMessage", "ShipGetMessage.xml");
+			RemoteLoader("EquipmentInfo", "EquipmentInfo.xml");
+		}
+
 		private static string TranslationsDir => Path.Combine(
 			Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location),
 			"Translations"
 		);
-
-		private class ShipTranslator
+		private class XmlTranslator
 		{
-			private static Dictionary<string, string> table;
+			protected Dictionary<string, string> table;
 
-			static ShipTranslator()
+			public XmlTranslator()
 			{
 				table = new Dictionary<string, string>();
+			}
+			public XmlTranslator(string xmlPath, string textSelector = "/Texts/Text", bool fromString = false) : this()
+			{
+				if(fromString)
+					this.LoadXml(xmlPath, textSelector);
+				else
+					this.Load(xmlPath, textSelector);
+			}
 
+			public void Load(string xmlPath, string textSelector)
+			{
 				XmlDocument doc = new XmlDocument();
-				doc.Load(Path.Combine(TranslationsDir, "Ships.xml"));
+				doc.Load(xmlPath);
 
-				var nodes = doc.SelectNodes("/Ships/Ship");
+				var nodes = doc.SelectNodes(textSelector);
 				foreach(XmlNode node in nodes)
 				{
 					var jp = node["JP-Name"].InnerText;
@@ -135,20 +176,12 @@ namespace ZTranslation
 					table.Add(jp, tr);
 				}
 			}
-			public static string GetTranslation(string Name) => table.ContainsKey(Name) ? table[Name] : Name;
-		}
-		private class EquipmentTranslator
-		{
-			private static Dictionary<string, string> table;
-
-			static EquipmentTranslator()
+			public void LoadXml(string xmlData, string textSelector)
 			{
-				table = new Dictionary<string, string>();
-
 				XmlDocument doc = new XmlDocument();
-				doc.Load(Path.Combine(TranslationsDir, "Equipment.xml"));
+				doc.LoadXml(xmlData);
 
-				var nodes = doc.SelectNodes("/Equipment/Item");
+				var nodes = doc.SelectNodes(textSelector);
 				foreach (XmlNode node in nodes)
 				{
 					var jp = node["JP-Name"].InnerText;
@@ -158,7 +191,20 @@ namespace ZTranslation
 					table.Add(jp, tr);
 				}
 			}
-			public static string GetTranslation(string Name) => table.ContainsKey(Name) ? table[Name] : Name;
+
+			public string GetTranslation(string Name) => table.ContainsKey(Name) ? table[Name] : Name;
+		}
+		private class ShipTranslator : XmlTranslator
+		{
+			public static ShipTranslator Instance => new ShipTranslator();
+
+			public ShipTranslator() : base(Path.Combine(TranslationsDir, "Ships.xml"), "/Ships/Ship") { }
+		}
+		private class EquipmentTranslator : XmlTranslator
+		{
+			public static EquipmentTranslator Instance => new EquipmentTranslator();
+
+			public EquipmentTranslator() : base(Path.Combine(TranslationsDir, "Equipment.xml"), "/Equipment/Item") { }
 		}
 	}
 }
