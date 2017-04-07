@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Texts Version="1.0.0">
+	<Text>
+		<JP-Name>燃料パック200</JP-Name>
+		<TR-Name>연료 팩 200</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>弾薬パック200</JP-Name>
+		<TR-Name>탄약 팩 200</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>鋼材パック150</JP-Name>
+		<TR-Name>강재 팩 150</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ボーキサイトパック100</JP-Name>
+		<TR-Name>보크사이트 팩 100</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>開発資材パック7</JP-Name>
+		<TR-Name>개발자재 팩 7</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>高速建造材パック5</JP-Name>
+		<TR-Name>고속건조재 팩 5</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>高速修復材パック5</JP-Name>
+		<TR-Name>고속수복재 팩 5</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>お買得！工廠セット</JP-Name>
+		<TR-Name>특가! 공창 세트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>お買得！出撃セット</JP-Name>
+		<TR-Name>특가! 출격 세트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ドック増設セット</JP-Name>
+		<TR-Name>독 개방 키</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>応急修理要員</JP-Name>
+		<TR-Name>응급 수리 요원</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ダメコン特盛セット</JP-Name>
+		<TR-Name>다메콘 특대 세트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>八八資源セット</JP-Name>
+		<TR-Name>88자원 세트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>応急修理女神</JP-Name>
+		<TR-Name>응급수리여신</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>特注家具職人</JP-Name>
+		<TR-Name>특주 가구 장인</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>母港拡張</JP-Name>
+		<TR-Name>모항 확장</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>タンカー徴用</JP-Name>
+		<TR-Name>유조선 징용</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>給糧艦「間宮」</JP-Name>
+		<TR-Name>급양함 「마미야」</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>アルミ大量産</JP-Name>
+		<TR-Name>알루미늄 대 양산</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>書類一式＆指輪</JP-Name>
+		<TR-Name>서류&amp;반지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>艦娘へのクッキー</JP-Name>
+		<TR-Name>칸무스에게 주는 쿠키</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>改修資材パック10</JP-Name>
+		<TR-Name>개수자재 팩 10</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>給糧艦「伊良湖」5</JP-Name>
+		<TR-Name>급양함 「이라코」 5</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>戦闘糧食</JP-Name>
+		<TR-Name>전투식량</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>洋上補給</JP-Name>
+		<TR-Name>해상보급</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>補強増設</JP-Name>
+		<TR-Name>보강증설</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>設営隊</JP-Name>
+		<TR-Name>설영대</TR-Name>
+	</Text>
+</Texts>

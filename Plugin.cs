@@ -125,6 +125,12 @@ namespace ZTranslation
 									if (x.api_name != null) x.api_name = getTranslation("UseItemName", x.api_name.ToString());
 									if (x.api_description != null) x.api_description[0] = getTranslation("UseItemDescription", x.api_description[0].ToString());
 								}
+								// Payitem names
+								foreach (var x in svdata.api_data.api_mst_payitem)
+								{
+									if (x.api_name != null) x.api_name = getTranslation("PayItemName", x.api_name.ToString());
+									if (x.api_description != null) x.api_description = getTranslation("PayItemDescription", x.api_description.ToString());
+								}
 							}
 							raw_content = JsonConvert.SerializeObject(svdata, serializeOption);
 							data = Encoding.UTF8.GetBytes("svdata=" + raw_content);
@@ -214,6 +220,8 @@ namespace ZTranslation
 			RemoteLoader("FurnitureDescription", "FurnitureDescription.xml");
 			RemoteLoader("UseItemName", "UseItemName.xml");
 			RemoteLoader("UseItemDescription", "UseItemDescription.xml");
+			RemoteLoader("PayItemName", "PayItemName.xml");
+			RemoteLoader("PayItemDescription", "PayItemDescription.xml");
 		}
 
 		private static string TranslationsDir => Path.Combine(
@@ -265,6 +273,12 @@ namespace ZTranslation
 
 			public ShipTranslator() : base(Path.Combine(TranslationsDir, "Ships.xml"), "/Ships/Ship") { }
 		}
+		private class ShipTypeTranslator : XmlTranslator
+		{
+			public static ShipTypeTranslator Instance => new ShipTypeTranslator();
+
+			public ShipTypeTranslator() : base(Path.Combine(TranslationsDir, "ShipTypes.xml"), "/ShipTypes/Type") { }
+		}
 		private class EquipmentTranslator : XmlTranslator
 		{
 			public static EquipmentTranslator Instance => new EquipmentTranslator();
@@ -276,12 +290,6 @@ namespace ZTranslation
 			public static EquipmentTypeTranslator Instance => new EquipmentTypeTranslator();
 
 			public EquipmentTypeTranslator() : base(Path.Combine(TranslationsDir, "EquipmentTypes.xml"), "/EquipmentTypes/Item") { }
-		}
-		private class ShipTypeTranslator : XmlTranslator
-		{
-			public static ShipTypeTranslator Instance => new ShipTypeTranslator();
-
-			public ShipTypeTranslator() : base(Path.Combine(TranslationsDir, "ShipTypes.xml"), "/ShipTypes/Type") { }
 		}
 	}
 }
