@@ -1,0 +1,1359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Texts Version="1.0.0">
+	<Text>
+		<JP-Name>鎮守府の床</JP-Name>
+		<TR-Name>진수부 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ナチュラルな床</JP-Name>
+		<TR-Name>자연스러운 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>桜舞う春のフローリング</JP-Name>
+		<TR-Name>벚꽃이 흩날리는 봄의 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>新緑のフローリング</JP-Name>
+		<TR-Name>신임 제독의 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>高級フローリング</JP-Name>
+		<TR-Name>고급 바닥재</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>砂浜の床</JP-Name>
+		<TR-Name>모래바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ブルーカーペット</JP-Name>
+		<TR-Name>파란 카페트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>明るいウッドタイルの床</JP-Name>
+		<TR-Name>밝은 나무 타일 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>白い石板タイル</JP-Name>
+		<TR-Name>하얀 석판 타일</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>暗めのウッドタイルの床</JP-Name>
+		<TR-Name>어두운 나무 타일 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>手編みとフローリング</JP-Name>
+		<TR-Name>손뜨개와 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>小花柄カーペット</JP-Name>
+		<TR-Name>작은 꽃무늬 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>冬の丸絨毯</JP-Name>
+		<TR-Name>겨울의 원형 카페트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>桜の床</JP-Name>
+		<TR-Name>벚꽃 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>冬のカーペット</JP-Name>
+		<TR-Name>겨울 카페트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>雪模様の特製絨毯</JP-Name>
+		<TR-Name>눈 모양 특제 카페트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ピンクの床</JP-Name>
+		<TR-Name>핑크 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>畳＆梅柄カーペット</JP-Name>
+		<TR-Name>다다미&amp;매화 무늬 카페트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>睦月の床</JP-Name>
+		<TR-Name>무츠키 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>西欧風カーペット</JP-Name>
+		<TR-Name>서유럽 풍 카페트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>真っ赤な高級絨毯</JP-Name>
+		<TR-Name>새빨간 고급 카페트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>真っ白なフワフワ絨毯</JP-Name>
+		<TR-Name>새하얀 솜털 카페트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>雪原の床</JP-Name>
+		<TR-Name>설원 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>春色の床</JP-Name>
+		<TR-Name>봄빛 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>青畳</JP-Name>
+		<TR-Name>푸른 다다미</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>白い高級大理石床</JP-Name>
+		<TR-Name>하얀 고급 대리석 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>秋の床板</JP-Name>
+		<TR-Name>가을 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>中秋の名月敷物</JP-Name>
+		<TR-Name>추석 명월 양탄자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>紅葉の職人床</JP-Name>
+		<TR-Name>단풍 장인 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>艦娘座布団の床</JP-Name>
+		<TR-Name>칸무스 방석 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>飛行甲板</JP-Name>
+		<TR-Name>비행갑판</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>合宿セット・布団</JP-Name>
+		<TR-Name>합숙 세트・이불</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>コンクリート床</JP-Name>
+		<TR-Name>콘크리트 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ラクガキ床</JP-Name>
+		<TR-Name>낙서 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>戦艦タイルの床</JP-Name>
+		<TR-Name>전함 타일 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>鮮やかな畳</JP-Name>
+		<TR-Name>생생한 다다미</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>い草の畳</JP-Name>
+		<TR-Name>골풀 다다미</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>普通の壁紙</JP-Name>
+		<TR-Name>보통 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>低予算な壁紙</JP-Name>
+		<TR-Name>저예산 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>和のシンプル壁紙</JP-Name>
+		<TR-Name>일본식 심플 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>緑の壁紙</JP-Name>
+		<TR-Name>녹색 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>春仕様の壁紙</JP-Name>
+		<TR-Name>봄 사양 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>昭和レトロな壁紙</JP-Name>
+		<TR-Name>쇼와 레트로 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>チョコレートの壁紙</JP-Name>
+		<TR-Name>쵸콜렛 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ポップな壁紙</JP-Name>
+		<TR-Name>팝 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>お菓子作りの壁紙</JP-Name>
+		<TR-Name>과자 만들기 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>高級和風壁紙</JP-Name>
+		<TR-Name>고급 일본식 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>家具職人の壁紙</JP-Name>
+		<TR-Name>가구 장인의 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>秋仕様の壁紙</JP-Name>
+		<TR-Name>가을 사양 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>シンプルモダン壁紙</JP-Name>
+		<TR-Name>심플 모던 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>軍艦色の壁</JP-Name>
+		<TR-Name>군함색 벽</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>白い冬の壁紙</JP-Name>
+		<TR-Name>하얀 겨울의 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>青い壁紙</JP-Name>
+		<TR-Name>푸른 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>高級赤煉瓦の壁</JP-Name>
+		<TR-Name>고급 붉은 벽돌 벽</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>チェック＆リーフ壁紙</JP-Name>
+		<TR-Name>체크&amp;리프 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>木板の壁</JP-Name>
+		<TR-Name>나무 판자 벽</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>高級木材の壁</JP-Name>
+		<TR-Name>고급 목재 벽</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>折鶴の壁紙</JP-Name>
+		<TR-Name>종이학 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>緑の和壁紙</JP-Name>
+		<TR-Name>녹색 일본식 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>新緑の壁紙</JP-Name>
+		<TR-Name>신록 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ピンクドット壁紙</JP-Name>
+		<TR-Name>핑크 도트 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ブルードットな壁紙</JP-Name>
+		<TR-Name>블루 도트 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>冬のモダンアート壁紙</JP-Name>
+		<TR-Name>겨울 모던 아트 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>和モダンアート壁紙</JP-Name>
+		<TR-Name>일본식 모던 아트 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>桃の節句の壁紙</JP-Name>
+		<TR-Name>삼짇날 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>穏やかな壁紙</JP-Name>
+		<TR-Name>부드러운 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>新春の壁紙</JP-Name>
+		<TR-Name>신춘 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>コンクリート壁</JP-Name>
+		<TR-Name>콘크리트 벽</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ピンクコンクリ壁</JP-Name>
+		<TR-Name>핑크 콘크리트 벽</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>龍の壁紙</JP-Name>
+		<TR-Name>용 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>紅葉の壁紙</JP-Name>
+		<TR-Name>홍차 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>赤カーテンの窓</JP-Name>
+		<TR-Name>붉은 커텐 창</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>緑カーテンの窓</JP-Name>
+		<TR-Name>녹색 커텐 창</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>青カーテンの窓</JP-Name>
+		<TR-Name>파란색 커텐 창</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>鎮守府新年飾り</JP-Name>
+		<TR-Name>진수부 신년 장식</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>破魔矢の窓</JP-Name>
+		<TR-Name>하마야 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ちょっとゴージャスな窓</JP-Name>
+		<TR-Name>조금 고져스한 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>晩秋の高級和窓</JP-Name>
+		<TR-Name>늦가을 고급 일본식 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>青い上品な大窓</JP-Name>
+		<TR-Name>파란색 질 좋은 큰 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>広く開いた大窓</JP-Name>
+		<TR-Name>활짝 열린 큰 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>白いカーテンの小窓</JP-Name>
+		<TR-Name>하얀 커텐 작은 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>桃の節句の窓</JP-Name>
+		<TR-Name>삼짇날 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>爽やかな窓</JP-Name>
+		<TR-Name>상쾌한 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>てるてる坊主の窓</JP-Name>
+		<TR-Name>테루테루보즈 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>紫陽花の窓</JP-Name>
+		<TR-Name>수국화 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>お花見窓</JP-Name>
+		<TR-Name>꽃놀이 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>鉄格子の窓</JP-Name>
+		<TR-Name>철창 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>お月見窓</JP-Name>
+		<TR-Name>달맞이 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>防空加工窓</JP-Name>
+		<TR-Name>방공 가공 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>障子デラックス</JP-Name>
+		<TR-Name>미닫이 창 디럭스</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>シンプルフレーム</JP-Name>
+		<TR-Name>심플 프레임</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>シンプルフレーム2型</JP-Name>
+		<TR-Name>심플 프레임 2형</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>豪華なお月見窓</JP-Name>
+		<TR-Name>화려한 달맞이 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>シンプルなすだれ窓</JP-Name>
+		<TR-Name>심플한 블라인드 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>すだれ窓</JP-Name>
+		<TR-Name>발이 달린 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>昔ながらのすりガラス</JP-Name>
+		<TR-Name>옛날 그대로의 불투명 유리</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>艦娘による冬の窓</JP-Name>
+		<TR-Name>칸무스이 꾸민 겨울의 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>冬のステンドグラス</JP-Name>
+		<TR-Name>겨울 스테인드글라스</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>おしゃれな格子窓</JP-Name>
+		<TR-Name>세련된 격자 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>障子</JP-Name>
+		<TR-Name>미닫이 창</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>春の高級窓</JP-Name>
+		<TR-Name>봄 고급 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>なし</JP-Name>
+		<TR-Name>없음</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>壁掛け古時計</JP-Name>
+		<TR-Name>오래된 벽걸이 시계</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>お詫び掛け軸</JP-Name>
+		<TR-Name>사과 족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ステンドグラス</JP-Name>
+		<TR-Name>스테인드글라스</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>鹿のオブジェ</JP-Name>
+		<TR-Name>사슴 벽걸이</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「海上護衛」掛け軸</JP-Name>
+		<TR-Name>「해상호위」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>花の絵画</JP-Name>
+		<TR-Name>꽃 그림</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「20万の感謝」掛け軸</JP-Name>
+		<TR-Name>「20만 감사」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「100万の感謝」掛け軸</JP-Name>
+		<TR-Name>「100만 감사」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>紳士な帽子掛け</JP-Name>
+		<TR-Name>신사의 모자 걸이</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「夜戦」掛け軸</JP-Name>
+		<TR-Name>「야전」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「50万の感謝」掛け軸</JP-Name>
+		<TR-Name>「50만 감사」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「謹賀新年」掛け軸</JP-Name>
+		<TR-Name>「근하신년」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「80万の感謝」掛け軸</JP-Name>
+		<TR-Name>「80만 감사」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>古い世界地図</JP-Name>
+		<TR-Name>오래된 세계지도</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「なのです」掛け軸</JP-Name>
+		<TR-Name>「なのです」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「第六駆逐隊」掛け軸</JP-Name>
+		<TR-Name>「제6구축대」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>フレーム付地図</JP-Name>
+		<TR-Name>프레임 있는 부지도</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>小さな観葉植物</JP-Name>
+		<TR-Name>작은 관엽식물</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>シンプルな観葉植物</JP-Name>
+		<TR-Name>심플한 관엽식물</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「舞鶴鎮守府」掛け軸</JP-Name>
+		<TR-Name>「마이즈루 진수부」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>アレンジメント</JP-Name>
+		<TR-Name>꽃꽂이</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>壁掛け図上演習セット</JP-Name>
+		<TR-Name>벽걸이 도면 연습 세트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「150万の感謝」掛け軸</JP-Name>
+		<TR-Name>「150만 감사」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「180万の感謝」掛け軸</JP-Name>
+		<TR-Name>「180만 감사」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「一周年記念」掛け軸</JP-Name>
+		<TR-Name>「1주년 기념」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>怪獣映画ポスター</JP-Name>
+		<TR-Name>괴수영화 포스터</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>富士山の壁画</JP-Name>
+		<TR-Name>후지산 벽화</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>戦艦映画ポスター</JP-Name>
+		<TR-Name>전쟁영화 포스터</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>女の子のポスター</JP-Name>
+		<TR-Name>여자 아이 포스터</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>試作艦戦ポスター</JP-Name>
+		<TR-Name>시제 함상전투기 포스터</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>昔ながらの箪笥</JP-Name>
+		<TR-Name>옛날 장롱</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>サイドボード</JP-Name>
+		<TR-Name>찬장</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「霧」の桐箪笥</JP-Name>
+		<TR-Name>「안개」의 오동나무 장롱</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>節分「豆まき」セット</JP-Name>
+		<TR-Name>절분「콩뿌리기」세트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>暖炉</JP-Name>
+		<TR-Name>벽난로</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>チョコケーキと紅茶セット</JP-Name>
+		<TR-Name>쵸코케이크와 홍차 세트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「長門」「陸奥」の雛人形</JP-Name>
+		<TR-Name>「나가토」「무츠」히나인형</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>エレガントボード</JP-Name>
+		<TR-Name>우아한 천장</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>鎮守府のツリー</JP-Name>
+		<TR-Name>진수부 트리</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>メルヘンシェルフ</JP-Name>
+		<TR-Name>동화풍 찬장</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>やかんストーブ</JP-Name>
+		<TR-Name>주전자 난로</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>クラシックシェルフ</JP-Name>
+		<TR-Name>클래식 찬장</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>重巡模型と桐箪笥</JP-Name>
+		<TR-Name>중순 모형과 오동나무 장롱</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「赤城」模型と桐箪笥</JP-Name>
+		<TR-Name>「아카기」모형과 오동나무 장롱</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「長門」模型と桐箪笥</JP-Name>
+		<TR-Name>「나가토」모형과 오동나무 장롱</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>折り畳み机</JP-Name>
+		<TR-Name>접이식 책상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ハンガーラック</JP-Name>
+		<TR-Name>옷걸이 선반</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ドレッサー</JP-Name>
+		<TR-Name>화장대</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>照れ屋なお面</JP-Name>
+		<TR-Name>부끄럼쟁이 가면</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>Ｚ旗の暖炉</JP-Name>
+		<TR-Name>Z깃발 벽난로</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>緑のプランター</JP-Name>
+		<TR-Name>녹색 화분</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>模様替えお掃除セット</JP-Name>
+		<TR-Name>대청소 세트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>しょうぶ和箪笥</JP-Name>
+		<TR-Name>창포 일본식 옷장</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>診療台セット</JP-Name>
+		<TR-Name>진료 세트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>教室セット「机」</JP-Name>
+		<TR-Name>교실 세트 「책상」</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「武蔵」模型と桐箪笥</JP-Name>
+		<TR-Name>「무사시」모형과 오동나무 장롱</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「加賀」模型と桐箪笥</JP-Name>
+		<TR-Name>「카가」모형과 오동나무 장롱</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>だるま</JP-Name>
+		<TR-Name>다루마</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>新生だるま</JP-Name>
+		<TR-Name>신생 다루마</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ただの段ボール</JP-Name>
+		<TR-Name>그냥 골판지 상자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>椅子</JP-Name>
+		<TR-Name>의자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>執務机</JP-Name>
+		<TR-Name>집무 책상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>おさがりの机</JP-Name>
+		<TR-Name>중고 책상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>提督の机</JP-Name>
+		<TR-Name>제독 책상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ダンディな机</JP-Name>
+		<TR-Name>깔쌈한 책상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>大将の机</JP-Name>
+		<TR-Name>대장 책상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>社長の机</JP-Name>
+		<TR-Name>사장 책상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>インテリア椅子</JP-Name>
+		<TR-Name>인테리어 의자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ナチュラルな椅子</JP-Name>
+		<TR-Name>자연스러운 의자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>教室セット「教卓」</JP-Name>
+		<TR-Name>교실 세트 「교탁」</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>モダンチェア</JP-Name>
+		<TR-Name>현대적인 의자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>駆逐艦娘のツリー</JP-Name>
+		<TR-Name>구축함 칸무스의 트리</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>モダンなテーブル</JP-Name>
+		<TR-Name>현대적인 테이블</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ちゃぶ台セット</JP-Name>
+		<TR-Name>식탁 세트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>大人の節分セット</JP-Name>
+		<TR-Name>어른의 절분 세트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>撮影セット</JP-Name>
+		<TR-Name>촬영 세트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>早く出しすぎた炬燵</JP-Name>
+		<TR-Name>일찍 꺼내버린 코타츠</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>羽毛布団と枕</JP-Name>
+		<TR-Name>털이불과 베개</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>煎餅布団</JP-Name>
+		<TR-Name>얇은 이불</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>床の間</JP-Name>
+		<TR-Name>도코노마</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>艦娘専用デスク</JP-Name>
+		<TR-Name>칸무스 전용 책상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>提督の麻雀卓</JP-Name>
+		<TR-Name>제독의 작탁</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>西瓜割りセット</JP-Name>
+		<TR-Name>수박깨기 세트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>高級ミシン</JP-Name>
+		<TR-Name>고급 재봉틀</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>金剛の紅茶セット</JP-Name>
+		<TR-Name>콩고의 홍차 세트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>おいしそうなスツール</JP-Name>
+		<TR-Name>맛깔스런 의자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>小さなウッドベージュの椅子</JP-Name>
+		<TR-Name>작은 나무 베이지 의자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ご家庭用プール</JP-Name>
+		<TR-Name>가정용 수영장</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ガラステーブル</JP-Name>
+		<TR-Name>유리 테이블</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>フェミニンガラステーブル</JP-Name>
+		<TR-Name>여성 유리 테이블</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>シングルベッド</JP-Name>
+		<TR-Name>1인용 침대</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>板チョコ型の机</JP-Name>
+		<TR-Name>쵸콜렛 모양 책상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>布団と枕</JP-Name>
+		<TR-Name>이불과 베개</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ウッディな執務机</JP-Name>
+		<TR-Name>나무 집무 책상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>温泉檜風呂</JP-Name>
+		<TR-Name>온천 노송나무 욕조</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>七面鳥のご馳走</JP-Name>
+		<TR-Name>칠면조 요리</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>雛人形豪華四段飾り</JP-Name>
+		<TR-Name>히나 인형 호화 4단 장식</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>教室セット「黒板」</JP-Name>
+		<TR-Name>교실 세트 「칠판」</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「200万の感謝」掛け軸</JP-Name>
+		<TR-Name>「200만 감사」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「迷彩主義」掛け軸</JP-Name>
+		<TR-Name>「위장주의」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>大きな古時計</JP-Name>
+		<TR-Name>크고 오래된 시계</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>提督の書斎机</JP-Name>
+		<TR-Name>제독의 서재 책상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>原稿机</JP-Name>
+		<TR-Name>원고지 책상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>七夕飾りの窓</JP-Name>
+		<TR-Name>칠석 장식 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>蚊取り線香の窓</JP-Name>
+		<TR-Name>모기향을 피운 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>鎮守府風鈴</JP-Name>
+		<TR-Name>진수부 풍경</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>夏先取りセット</JP-Name>
+		<TR-Name>여름 선점 세트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>リゾートセット</JP-Name>
+		<TR-Name>리조트 세트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>書斎本棚</JP-Name>
+		<TR-Name>서재 책상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>花火の窓</JP-Name>
+		<TR-Name>불꽃놀이 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ビニールプール</JP-Name>
+		<TR-Name>비닐 풀</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>秋刀魚の食卓</JP-Name>
+		<TR-Name>꽁치가 올려진 식탁</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ジュークボックス</JP-Name>
+		<TR-Name>주크박스</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>秋の気配な窓</JP-Name>
+		<TR-Name>가을 기분의 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「横須賀鎮守府」掛け軸</JP-Name>
+		<TR-Name>「요코스카 진수부」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「ありがとう」掛け軸</JP-Name>
+		<TR-Name>「감사합니다」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ジュークボックス改</JP-Name>
+		<TR-Name>주크박스改</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>冬の飾り付け</JP-Name>
+		<TR-Name>겨울 장식</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>白と青のツリー</JP-Name>
+		<TR-Name>흰색 파란색 트리</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>鎮守府初詣セット</JP-Name>
+		<TR-Name>진수부 첫 참배 세트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>新春掛け軸二〇一五</JP-Name>
+		<TR-Name>신년 족자 2015</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>しめ飾り</JP-Name>
+		<TR-Name>금줄 장식</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>年越し蕎麦</JP-Name>
+		<TR-Name>신년맞이 메밀국수</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>門松</JP-Name>
+		<TR-Name>카도마츠</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>鎮守府カウンターバー</JP-Name>
+		<TR-Name>진수부 카운터 바</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「250万の感謝」掛け軸</JP-Name>
+		<TR-Name>「250만 감사」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>チョコレートキッチン</JP-Name>
+		<TR-Name>쵸콜렛 부엌</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>洋酒＆ワイン棚</JP-Name>
+		<TR-Name>양주&amp;와인 선반</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>日本酒＆ウィスキー棚</JP-Name>
+		<TR-Name>일본주&amp;위스키 선반</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>武蔵の掛け軸</JP-Name>
+		<TR-Name>무사시 족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>春色の壁紙</JP-Name>
+		<TR-Name>봄빛 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>バー仕様の壁</JP-Name>
+		<TR-Name>바 사양 벽</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>梅紫の壁紙</JP-Name>
+		<TR-Name>매화빛 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>脱衣所</JP-Name>
+		<TR-Name>탈의소</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>温泉岩風呂</JP-Name>
+		<TR-Name>온천 바위 탕</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>富嶽タイル画</JP-Name>
+		<TR-Name>후지산 타일 그림</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「二周年記念」掛け軸</JP-Name>
+		<TR-Name>「2주년 기념」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>梅雨の壁紙</JP-Name>
+		<TR-Name>장마 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>梅雨の緑カーテン窓</JP-Name>
+		<TR-Name>장마철 녹색 커튼 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>紫陽花鉢の提督机</JP-Name>
+		<TR-Name>수국 화분이 있는 제독 책상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>レインコート＆傘掛け</JP-Name>
+		<TR-Name>비옷&amp;우산걸이</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「300万の感謝」掛け軸</JP-Name>
+		<TR-Name>「300만 감사」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>水風呂</JP-Name>
+		<TR-Name>냉탕</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>鬼灯の花の窓</JP-Name>
+		<TR-Name>꽈리 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>鎮守府浜茶屋</JP-Name>
+		<TR-Name>진수부 바닷가 찻집</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>浜茶屋の窓</JP-Name>
+		<TR-Name>바닷가 찻집의 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>業務用かき氷器</JP-Name>
+		<TR-Name>업무용 빙수 그릇</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>浜茶屋の仮設壁板</JP-Name>
+		<TR-Name>바닷가 찻집 가설 벽</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>艦隊氷旗</JP-Name>
+		<TR-Name>함대 빙수 깃발</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>浜茶屋の床</JP-Name>
+		<TR-Name>바닷가 찻집 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「観艦式」掛け軸</JP-Name>
+		<TR-Name>「관함식」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>鎮守府秋祭りの屋台</JP-Name>
+		<TR-Name>진수부 가을 축제 포장마차</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>鎮守府秋祭りの射的</JP-Name>
+		<TR-Name>진수부 가을 축제 과녁</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「ラバウル基地」掛け軸</JP-Name>
+		<TR-Name>「라바울 기지」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「ブイン基地」掛け軸</JP-Name>
+		<TR-Name>「부인 기지」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>艦隊大漁旗</JP-Name>
+		<TR-Name>함대 풍어기</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>鎮守府秋刀魚祭り</JP-Name>
+		<TR-Name>진수부 꽁치 축제</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>北方迷彩な桐箪笥</JP-Name>
+		<TR-Name>북방미채 장식 오동나무 장롱</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「トラック泊地」掛け軸</JP-Name>
+		<TR-Name>「트럭 정박지」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>夜のお詫び掛け軸(壱)</JP-Name>
+		<TR-Name>밤의 사과 족자 (1)</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>夜のお詫び掛け軸(弐)</JP-Name>
+		<TR-Name>밤의 사과 족자 (2)</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>七面鳥のディナー</JP-Name>
+		<TR-Name>칠면조 저녁상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>艦隊安全お飾り</JP-Name>
+		<TR-Name>함대 안전 장식물</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「呉鎮守府」掛け軸</JP-Name>
+		<TR-Name>「구레 진수부」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「佐世保鎮守府」掛け軸</JP-Name>
+		<TR-Name>「사세보 진수부」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>年末年始の提督大奮発</JP-Name>
+		<TR-Name>연말 연시 제독 대분발</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>睦月の窓</JP-Name>
+		<TR-Name>무츠키 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>睦月の机</JP-Name>
+		<TR-Name>무츠키 책상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>航空母艦ステンドグラス</JP-Name>
+		<TR-Name>항공모함 스테인드글라스</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>航空戦艦ステンドグラス</JP-Name>
+		<TR-Name>항공전함 스테인드글라스</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>鎮守府お茶会セット</JP-Name>
+		<TR-Name>진수부 다과회 세트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「春の一番」掛け軸</JP-Name>
+		<TR-Name>「봄의 1번」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>提督のクッキーキッチン</JP-Name>
+		<TR-Name>제독의 쿠키 부엌</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>提督の作る食卓</JP-Name>
+		<TR-Name>제독이 만드는 밥상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「春の乙型姉妹」パネル</JP-Name>
+		<TR-Name>「봄의 을형 자매」패널</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>卯月の床</JP-Name>
+		<TR-Name>우즈키 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>卯月の壁紙</JP-Name>
+		<TR-Name>우즈키 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>卯月の窓</JP-Name>
+		<TR-Name>우즈키 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>卯月の掛け軸</JP-Name>
+		<TR-Name>우즈키 족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>卯月の机</JP-Name>
+		<TR-Name>우즈키 책상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「三周年記念」掛け軸</JP-Name>
+		<TR-Name>「3주년 기념」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>皐月の壁紙</JP-Name>
+		<TR-Name>사츠키 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>皐月の窓</JP-Name>
+		<TR-Name>사츠키 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>皐月の机</JP-Name>
+		<TR-Name>사츠키 책상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>海軍基地航空隊の机</JP-Name>
+		<TR-Name>해군기지 항공대 책상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>陸軍飛行戦隊の指揮机</JP-Name>
+		<TR-Name>육군 비행전대 지휘 책상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>紫陽花の壁紙</JP-Name>
+		<TR-Name>수국화 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>紫陽花の床</JP-Name>
+		<TR-Name>수국화 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>鮎の季節の壁紙</JP-Name>
+		<TR-Name>은어 계절 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>梅雨の季節の床</JP-Name>
+		<TR-Name>장마철 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>藤の壁紙</JP-Name>
+		<TR-Name>등나무 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>藤と水面の床</JP-Name>
+		<TR-Name>등나무 수면 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>反省の掛け軸</JP-Name>
+		<TR-Name>반성 족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>紫陽花のステンドグラス</JP-Name>
+		<TR-Name>수국화 스테인드글라스</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「最上」模型と桐箪笥</JP-Name>
+		<TR-Name>「모가미」모형과 오동나무 장롱</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>涼しげな金魚鉢</JP-Name>
+		<TR-Name>시원한 어항</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>木製の涼しげな壁</JP-Name>
+		<TR-Name>시원한 나무 벽</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>床半分の簡易畳</JP-Name>
+		<TR-Name>바닥 절반 간이 다다미</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>青と白の床</JP-Name>
+		<TR-Name>파란색 흰색 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>青と白の壁</JP-Name>
+		<TR-Name>파란색 흰색 벽</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>青と白のブラインド窓</JP-Name>
+		<TR-Name>파란색 흰색 블라인드 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>艦娘が育てる朝顔の鉢</JP-Name>
+		<TR-Name>칸무스가 키우는 나팔꽃 화분</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>職人和飾棚</JP-Name>
+		<TR-Name>장인 일본식 장식선반</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>リゾートハンモック</JP-Name>
+		<TR-Name>리조트 해먹</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>波打ち際の砂浜床</JP-Name>
+		<TR-Name>물가 모래 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>鎮守府夏時間の窓</JP-Name>
+		<TR-Name>진수부 일광 창</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>赤とんぼの壁紙</JP-Name>
+		<TR-Name>잠자리 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>すすきの窓</JP-Name>
+		<TR-Name>억새풀 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>一六式大漁旗</JP-Name>
+		<TR-Name>16식 풍어기</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>提督座布団</JP-Name>
+		<TR-Name>제독 방석</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>提督文机</JP-Name>
+		<TR-Name>제독 독서대</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>鎮守府囲炉裏</JP-Name>
+		<TR-Name>진수부 난로</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ラヂオの窓</JP-Name>
+		<TR-Name>라디오 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ラヂオと高級職人窓</JP-Name>
+		<TR-Name>라디오와 고급 장인 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>トリコロールツリー</JP-Name>
+		<TR-Name>삼색 트리</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ローストビーフディナー</JP-Name>
+		<TR-Name>로스트 비프 저녁상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ライスコロッケディナー</JP-Name>
+		<TR-Name>라이스 고로케 저녁상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>鎮守府大掃除道具</JP-Name>
+		<TR-Name>진수부 대청소 도구</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>新春掛け軸二〇一七</JP-Name>
+		<TR-Name>신춘 족자 2017</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「迎春」掛け軸二〇一七</JP-Name>
+		<TR-Name>「영춘」족자 2017</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>梅柄の壁紙</JP-Name>
+		<TR-Name>매화 무늬 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>睦月の壁紙</JP-Name>
+		<TR-Name>무츠키 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>節分の原稿机</JP-Name>
+		<TR-Name>절분 원고 책상</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>恵方巻のキッチン</JP-Name>
+		<TR-Name>동방권의 부엌</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>「セッツブーン」掛け軸</JP-Name>
+		<TR-Name>「절부운」족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>節分の壁紙</JP-Name>
+		<TR-Name>절분 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>如月の壁紙</JP-Name>
+		<TR-Name>키사라기 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>如月の窓</JP-Name>
+		<TR-Name>키사라기 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>潜水空母な桐箪笥</JP-Name>
+		<TR-Name>잠수항모 모형과 오동나무 장롱</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>弥生の壁紙</JP-Name>
+		<TR-Name>야요이 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>弥生の窓</JP-Name>
+		<TR-Name>야요이 창문</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>弥生のアレンジメント</JP-Name>
+		<TR-Name>야요이의 꽃꽂이</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>クッキーの壁紙</JP-Name>
+		<TR-Name>쿠키 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>クッキーの床</JP-Name>
+		<TR-Name>쿠키 바닥</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>お返し掛け軸</JP-Name>
+		<TR-Name>답례 족자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>桜色の壁紙</JP-Name>
+		<TR-Name>벚꽃빛 벽지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>桜の和のアレンジメント</JP-Name>
+		<TR-Name>벚꽃 일본식 꽃꽂이</TR-Name>
+	</Text>
+</Texts>
