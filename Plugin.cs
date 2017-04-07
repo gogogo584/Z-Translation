@@ -169,8 +169,8 @@ namespace ZTranslation
 				var nodes = doc.SelectNodes(textSelector);
 				foreach(XmlNode node in nodes)
 				{
-					var jp = node["JP-Name"].InnerText;
-					var tr = node["TR-Name"].InnerText;
+					var jp = node["JP-Name"].InnerXml;
+					var tr = node["TR-Name"].InnerXml;
 
 					if (table.ContainsKey(jp)) continue;
 					table.Add(jp, tr);
@@ -184,8 +184,8 @@ namespace ZTranslation
 				var nodes = doc.SelectNodes(textSelector);
 				foreach (XmlNode node in nodes)
 				{
-					var jp = node["JP-Name"].InnerText;
-					var tr = node["TR-Name"].InnerText;
+					var jp = node["JP-Name"].InnerXml;
+					var tr = node["TR-Name"].InnerXml;
 
 					if (table.ContainsKey(jp)) continue;
 					table.Add(jp, tr);
