@@ -190,7 +190,7 @@ namespace ZTranslation
 									if (n_type == 1) // Ship
 									{
 										if (x.api_name != null) x.api_name = getTranslation("ShipName", x.api_name.ToString());
-										if (x.api_info != null) x.api_info = getTranslation("ShipLibraryText", x.api_getmes.ToString());
+										if (x.api_info != null) x.api_info = getTranslation("ShipLibraryText", x.api_index_no.ToString());
 									}
 									else if (n_type == 2) // Equipment
 									{
@@ -248,7 +248,7 @@ namespace ZTranslation
 		private ConcurrentDictionary<string, XmlTranslator> Translators { get; set; }
 		private void PrepareTranslators()
 		{
-			Action<string, string> RemoteLoader = (name, url) =>
+			Action<string, string, XmlTranslator> RemoteLoader = (name, url, translator) =>
 			{
 				var urlBase = "https://raw.githubusercontent.com/WolfgangKurz/Z-Translation/master/Translations/";
 				new Thread(() =>
@@ -264,7 +264,7 @@ namespace ZTranslation
 						using (var reader = new StreamReader(response.GetResponseStream()))
 							xml = reader.ReadToEnd();
 
-						var translator = new XmlTranslator(xml, "/Texts/Text");
+						translator.Load(xml, "/Texts/Text");
 						Translators.TryAdd(name, translator);
 					}
 					catch { }
@@ -272,20 +272,21 @@ namespace ZTranslation
 			};
 
 			Translators = new ConcurrentDictionary<string, XmlTranslator>();
-			Translators.TryAdd("ShipName", ShipTranslator.Instance);
-			Translators.TryAdd("EquipmentName", EquipmentTranslator.Instance);
-			Translators.TryAdd("EquipmentType", EquipmentTypeTranslator.Instance);
-			Translators.TryAdd("ShipType", ShipTypeTranslator.Instance);
 
-			RemoteLoader("ShipGetMessage", "ShipGetMessage.xml");
-			RemoteLoader("ShipLibraryText", "ShipLibraryText.xml");
-			RemoteLoader("EquipmentInfo", "EquipmentInfo.xml");
-			RemoteLoader("Furniture", "Furniture.xml");
-			RemoteLoader("UseItem", "UseItem.xml");
-			RemoteLoader("PayItem", "PayItem.xml");
-			RemoteLoader("MapArea", "MapArea.xml");
-			RemoteLoader("Expedition", "Expedition.xml");
-			RemoteLoader("BGM", "BGM.xml");
+			// XML based loader (Z-Translation datas)
+			RemoteLoader("ShipName", "ShipName.xml", new XmlTranslator());
+			RemoteLoader("ShipType", "ShipType.xml", ShipTypeTranslator.Instance);
+			RemoteLoader("ShipGetMessage", "ShipGetMessage.xml", new XmlTranslator());
+			RemoteLoader("ShipLibraryText", "ShipLibraryText.xml", new XmlTranslator());
+			RemoteLoader("EquipmentName", "EquipmentName.xml", new XmlTranslator());
+			RemoteLoader("EquipmentType", "EquipmentType.xml", new XmlTranslator());
+			RemoteLoader("EquipmentInfo", "EquipmentInfo.xml", new XmlTranslator());
+			RemoteLoader("Furniture", "Furniture.xml", new XmlTranslator());
+			RemoteLoader("UseItem", "UseItem.xml", new XmlTranslator());
+			RemoteLoader("PayItem", "PayItem.xml", new XmlTranslator());
+			RemoteLoader("MapArea", "MapArea.xml", new XmlTranslator());
+			RemoteLoader("Expedition", "Expedition.xml", new XmlTranslator());
+			RemoteLoader("BGM", "BGM.xml", new XmlTranslator());
 
 			// Prepare KC3 quest datas
 			QuestTranslator.Instance.Prepare();
@@ -336,22 +337,10 @@ namespace ZTranslation
 			public virtual string GetTranslation(string Name) => table.ContainsKey(Name) ? table[Name] : Name;
 		}
 
-		// XML based loader (KanColleViewer Translation datas)
-		private static string TranslationsDir => Path.Combine(
-			Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location),
-			"Translations"
-		);
-		private class ShipTranslator : XmlTranslator
-		{
-			public static ShipTranslator Instance { get; } = new ShipTranslator();
-
-			public ShipTranslator() : base(Path.Combine(TranslationsDir, "Ships.xml"), "/Ships/Ship") { }
-		}
+		// XML based loader (Z-Translation datas)
 		private class ShipTypeTranslator : XmlTranslator
 		{
 			public static ShipTypeTranslator Instance { get; } = new ShipTypeTranslator();
-
-			public ShipTypeTranslator() : base(Path.Combine(TranslationsDir, "ShipTypes.xml"), "/ShipTypes/Type") { }
 
 			protected override void ValueProcessor(ref string jp, ref string tr, XmlNode node)
 			{
@@ -362,18 +351,6 @@ namespace ZTranslation
 				if (id == 8) tr = "고속전함";
 				else if (id == 9) tr = "전함";
 			}
-		}
-		private class EquipmentTranslator : XmlTranslator
-		{
-			public static EquipmentTranslator Instance { get; } = new EquipmentTranslator();
-
-			public EquipmentTranslator() : base(Path.Combine(TranslationsDir, "Equipment.xml"), "/Equipment/Item") { }
-		}
-		private class EquipmentTypeTranslator : XmlTranslator
-		{
-			public static EquipmentTypeTranslator Instance { get; } = new EquipmentTypeTranslator();
-
-			public EquipmentTypeTranslator() : base(Path.Combine(TranslationsDir, "EquipmentTypes.xml"), "/EquipmentTypes/Item") { }
 		}
 
 		// JSON based loader (KC3)
