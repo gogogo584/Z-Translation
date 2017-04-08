@@ -156,4 +156,20 @@
 		<JP-Name>噴式の胎動</JP-Name>
 		<TR-Name>분식의 태동</TR-Name>
 	</Text>
+	<Text>
+		<JP-Name>母港BGM設定可能</JP-Name>
+		<TR-Name>모함 BGM 설정가능</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>視聴ロングバージョン</JP-Name>
+		<TR-Name>시청 롱 버전</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>同曲母港BGMバージョン</JP-Name>
+		<TR-Name>동 악곡 모항 BGM 버전</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>試製新曲先行公開</JP-Name>
+		<TR-Name>시제 신곡 선행 공개</TR-Name>
+	</Text>
 </Texts>

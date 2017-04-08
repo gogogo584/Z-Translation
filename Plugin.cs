@@ -158,6 +158,23 @@ namespace ZTranslation
 							data = Encoding.UTF8.GetBytes("svdata=" + raw_content);
 							break;
 
+						#region Jukebox list request
+						case "/kcsapi/api_req_furniture/music_list":
+							raw_content = Encoding.UTF8.GetString(data).Substring("svdata=".Length);
+							svdata = JObject.Parse(raw_content);
+							{
+								foreach (var x in svdata.api_data)
+								{
+									if (x.api_name != null) x.api_name = getTranslation("BGM", x.api_name.ToString());
+									if (x.api_description != null) x.api_description = getTranslation("BGM", x.api_description.ToString());
+								}
+							}
+							raw_content = JsonConvert.SerializeObject(svdata, serializeOption);
+							data = Encoding.UTF8.GetBytes("svdata=" + raw_content);
+							break;
+						#endregion
+
+						#region Dictionary screen
 						case "/kcsapi/api_get_member/picture_book":
 							var s_type = HttpUtility.ParseQueryString(session.Request.BodyAsString)["api_type"];
 							int n_type = 1;
@@ -183,7 +200,9 @@ namespace ZTranslation
 							raw_content = JsonConvert.SerializeObject(svdata, serializeOption);
 							data = Encoding.UTF8.GetBytes("svdata=" + raw_content);
 							break;
+						#endregion
 
+						#region Quest page
 						case "/kcsapi/api_get_member/questlist":
 							raw_content = Encoding.UTF8.GetString(data).Substring("svdata=".Length);
 							svdata = JObject.Parse(raw_content);
@@ -197,6 +216,7 @@ namespace ZTranslation
 							raw_content = JsonConvert.SerializeObject(svdata, serializeOption);
 							data = Encoding.UTF8.GetBytes("svdata=" + raw_content);
 							break;
+						#endregion
 					}
 				}
 				catch { }
