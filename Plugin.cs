@@ -87,6 +87,7 @@ namespace ZTranslation
 
 					switch (session.Request.PathAndQuery)
 					{
+						#region api_start2
 						case "/kcsapi/api_start2":
 							raw_content = Encoding.UTF8.GetString(data).Substring("svdata=".Length);
 							svdata = JObject.Parse(raw_content);
@@ -110,7 +111,7 @@ namespace ZTranslation
 									if (x.api_name != null) x.api_name = getTranslation("EquipmentType", x.api_name.ToString());
 								// Ship Type names
 								foreach (var x in svdata.api_data.api_mst_stype)
-									if (x.api_name != null) x.api_name = getTranslation("ShipType", x.api_name.ToString());
+									if (x.api_name != null) x.api_name = getTranslation("ShipType", x.api_id.ToString());
 
 								// Furniture names
 								foreach (var x in svdata.api_data.api_mst_furniture)
@@ -157,6 +158,7 @@ namespace ZTranslation
 							raw_content = JsonConvert.SerializeObject(svdata, serializeOption);
 							data = Encoding.UTF8.GetBytes("svdata=" + raw_content);
 							break;
+						#endregion
 
 						#region Jukebox list request
 						case "/kcsapi/api_req_furniture/music_list":
@@ -209,8 +211,13 @@ namespace ZTranslation
 							{
 								foreach (var x in svdata.api_data.api_list)
 								{
-									if (x.api_title != null) x.api_title = getTranslation("Quest", x.api_title.ToString());
-									if (x.api_detail != null) x.api_detail = getTranslation("Quest", x.api_detail.ToString());
+									var id = x.api_no.ToString();
+									var output = QuestTranslator.Instance.GetTranslation("Name" + id);
+									if (output != null)
+									{
+										x.api_title = QuestTranslator.Instance.GetTranslation("Name" + id);
+										x.api_detail = QuestTranslator.Instance.GetTranslation("Detail" + id);
+									}
 								}
 							}
 							raw_content = JsonConvert.SerializeObject(svdata, serializeOption);
@@ -248,7 +255,7 @@ namespace ZTranslation
 				{
 					string xml = "";
 
-					//try
+					try
 					{
 						HttpWebRequest rq = WebRequest.Create(urlBase + url) as HttpWebRequest;
 						rq.Timeout = 5000;
@@ -260,7 +267,7 @@ namespace ZTranslation
 						var translator = new XmlTranslator(xml, "/Texts/Text");
 						Translators.TryAdd(name, translator);
 					}
-					//catch { }
+					catch { }
 				}).Start();
 			};
 
@@ -278,13 +285,13 @@ namespace ZTranslation
 			RemoteLoader("MapArea", "MapArea.xml");
 			RemoteLoader("Expedition", "Expedition.xml");
 			RemoteLoader("BGM", "BGM.xml");
-			RemoteLoader("Quest", "Quest.xml");
+
+			// Prepare KC3 quest datas
+			QuestTranslator.Instance.Prepare();
 		}
 
-		private static string TranslationsDir => Path.Combine(
-			Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location),
-			"Translations"
-		);
+
+		// XML based data loader (Basic class)
 		private class XmlTranslator
 		{
 			protected Dictionary<string, string> table;
@@ -298,6 +305,8 @@ namespace ZTranslation
 				this.Load(xmlPath, textSelector);
 			}
 
+			protected virtual void ValueProcessor(ref string jp, ref string tr, XmlNode node) { }
+
 			private string ValueAdjust(string Value) => Value
 				.Replace("<br />", "<br>")
 				.Replace("&amp;", "&");
@@ -306,8 +315,9 @@ namespace ZTranslation
 				var nodes = doc.SelectNodes(textSelector);
 				foreach (XmlNode node in nodes)
 				{
-					var jp = ValueAdjust(node["JP-Name"].InnerXml);
-					var tr = ValueAdjust(node["TR-Name"].InnerXml);
+					var jp = ValueAdjust(node["JP-Name"]?.InnerXml);
+					var tr = ValueAdjust(node["TR-Name"]?.InnerXml);
+					ValueProcessor(ref jp, ref tr, node);
 
 					if (table.ContainsKey(jp)) continue;
 					table.Add(jp, tr);
@@ -322,31 +332,90 @@ namespace ZTranslation
 				LoadTexts(doc, textSelector);
 			}
 
-			public string GetTranslation(string Name) => table.ContainsKey(Name) ? table[Name] : Name;
+			public virtual string GetTranslation(string Name) => table.ContainsKey(Name) ? table[Name] : Name;
 		}
+
+		// XML based loader (KanColleViewer Translation datas)
+		private static string TranslationsDir => Path.Combine(
+			Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location),
+			"Translations"
+		);
 		private class ShipTranslator : XmlTranslator
 		{
-			public static ShipTranslator Instance => new ShipTranslator();
+			public static ShipTranslator Instance { get; } = new ShipTranslator();
 
 			public ShipTranslator() : base(Path.Combine(TranslationsDir, "Ships.xml"), "/Ships/Ship") { }
 		}
 		private class ShipTypeTranslator : XmlTranslator
 		{
-			public static ShipTypeTranslator Instance => new ShipTypeTranslator();
+			public static ShipTypeTranslator Instance { get; } = new ShipTypeTranslator();
 
 			public ShipTypeTranslator() : base(Path.Combine(TranslationsDir, "ShipTypes.xml"), "/ShipTypes/Type") { }
+
+			protected override void ValueProcessor(ref string jp, ref string tr, XmlNode node)
+			{
+				int id = -1;
+				int.TryParse(node["ID"]?.InnerText, out id);
+
+				jp = id.ToString();
+				if (id == 8) tr = "고속전함";
+				else if (id == 9) tr = "전함";
+			}
 		}
 		private class EquipmentTranslator : XmlTranslator
 		{
-			public static EquipmentTranslator Instance => new EquipmentTranslator();
+			public static EquipmentTranslator Instance { get; } = new EquipmentTranslator();
 
 			public EquipmentTranslator() : base(Path.Combine(TranslationsDir, "Equipment.xml"), "/Equipment/Item") { }
 		}
 		private class EquipmentTypeTranslator : XmlTranslator
 		{
-			public static EquipmentTypeTranslator Instance => new EquipmentTypeTranslator();
+			public static EquipmentTypeTranslator Instance { get; } = new EquipmentTypeTranslator();
 
 			public EquipmentTypeTranslator() : base(Path.Combine(TranslationsDir, "EquipmentTypes.xml"), "/EquipmentTypes/Item") { }
+		}
+
+		// JSON based loader (KC3)
+		private class QuestTranslator
+		{
+			private ConcurrentDictionary<string, string> table { get; set; }
+			public static QuestTranslator Instance { get; } = new QuestTranslator();
+
+			public QuestTranslator()
+			{
+				this.table = new ConcurrentDictionary<string, string>();
+			}
+
+			public void Prepare()
+			{
+				var dataUrl = "https://raw.githubusercontent.com/KC3Kai/kc3-translations/master/data/kr/quests.json";
+				new Thread(() =>
+				{
+					string data = "";
+
+					try
+					{
+						HttpWebRequest rq = WebRequest.Create(dataUrl) as HttpWebRequest;
+						rq.Timeout = 5000;
+						HttpWebResponse response = rq.GetResponse() as HttpWebResponse;
+
+						using (var reader = new StreamReader(response.GetResponseStream()))
+							data = reader.ReadToEnd();
+
+						var svdata = JObject.Parse(data);
+						foreach (var quest in svdata.Children<JProperty>())
+						{
+							var id = -1;
+							int.TryParse(quest.Name, out id);
+
+							this.table.TryAdd("Name" + id.ToString(), quest.Value["name"].ToString());
+							this.table.TryAdd("Detail" + id.ToString(), quest.Value["desc"].ToString());
+						}
+					}
+					catch { }
+				}).Start();
+			}
+			public virtual string GetTranslation(string Name) => table.ContainsKey(Name) ? table[Name] : null;
 		}
 	}
 }
