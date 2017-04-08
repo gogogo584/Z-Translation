@@ -149,6 +149,10 @@ namespace ZTranslation
 									if (x.api_name != null) x.api_name = getTranslation("Expedition", x.api_name.ToString());
 									if (x.api_details != null) x.api_details = getTranslation("Expedition", x.api_details.ToString());
 								}
+
+								// BGM
+								foreach (var x in svdata.api_data.api_mst_bgm)
+									if (x.api_name != null) x.api_name = getTranslation("BGM", x.api_name.ToString());
 							}
 							raw_content = JsonConvert.SerializeObject(svdata, serializeOption);
 							data = Encoding.UTF8.GetBytes("svdata=" + raw_content);
@@ -174,6 +178,20 @@ namespace ZTranslation
 										if (x.api_name != null) x.api_name = getTranslation("EquipmentName", x.api_name.ToString());
 										if (x.api_info != null) x.api_info = getTranslation("EquipmentInfo", x.api_info.ToString());
 									}
+								}
+							}
+							raw_content = JsonConvert.SerializeObject(svdata, serializeOption);
+							data = Encoding.UTF8.GetBytes("svdata=" + raw_content);
+							break;
+
+						case "/kcsapi/api_get_member/questlist":
+							raw_content = Encoding.UTF8.GetString(data).Substring("svdata=".Length);
+							svdata = JObject.Parse(raw_content);
+							{
+								foreach (var x in svdata.api_data.api_list)
+								{
+									if (x.api_title != null) x.api_title = getTranslation("Quest", x.api_title.ToString());
+									if (x.api_detail != null) x.api_detail = getTranslation("Quest", x.api_detail.ToString());
 								}
 							}
 							raw_content = JsonConvert.SerializeObject(svdata, serializeOption);
@@ -239,6 +257,8 @@ namespace ZTranslation
 			RemoteLoader("PayItem", "PayItem.xml");
 			RemoteLoader("MapArea", "MapArea.xml");
 			RemoteLoader("Expedition", "Expedition.xml");
+			RemoteLoader("BGM", "BGM.xml");
+			RemoteLoader("Quest", "Quest.xml");
 		}
 
 		private static string TranslationsDir => Path.Combine(
