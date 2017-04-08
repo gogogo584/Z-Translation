@@ -190,7 +190,7 @@ namespace ZTranslation
 									if (n_type == 1) // Ship
 									{
 										if (x.api_name != null) x.api_name = getTranslation("ShipName", x.api_name.ToString());
-										if (x.api_info != null) x.api_info = getTranslation("ShipGetMessage", x.api_getmes.ToString());
+										if (x.api_info != null) x.api_info = getTranslation("ShipLibraryText", x.api_getmes.ToString());
 									}
 									else if (n_type == 2) // Equipment
 									{
@@ -278,6 +278,7 @@ namespace ZTranslation
 			Translators.TryAdd("ShipType", ShipTypeTranslator.Instance);
 
 			RemoteLoader("ShipGetMessage", "ShipGetMessage.xml");
+			RemoteLoader("ShipLibraryText", "ShipLibraryText.xml");
 			RemoteLoader("EquipmentInfo", "EquipmentInfo.xml");
 			RemoteLoader("Furniture", "Furniture.xml");
 			RemoteLoader("UseItem", "UseItem.xml");
