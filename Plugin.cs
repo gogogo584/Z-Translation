@@ -133,11 +133,14 @@ namespace ZTranslation
 								}
 
 								// MapArea
-								foreach (var x in svdata.api_data.api_mst_payitem)
+								foreach (var x in svdata.api_data.api_mst_maparea)
+									if (x.api_name != null) x.api_name = getTranslation("MapArea", x.api_name.ToString());
+
+								foreach (var x in svdata.api_data.api_mst_mapinfo)
 								{
 									if (x.api_name != null) x.api_name = getTranslation("MapArea", x.api_name.ToString());
-									if (x.api_opename != null) x.api_opename = getTranslation("MapArea", x.api_opename.ToString());
-									if (x.api_opeinfo != null) x.api_opeinfo = getTranslation("MapArea", x.api_opeinfo.ToString());
+									if (x.api_opetext != null) x.api_opetext = getTranslation("MapArea", x.api_opetext.ToString());
+									if (x.api_infotext != null) x.api_infotext = getTranslation("MapArea", x.api_infotext.ToString());
 								}
 							}
 							raw_content = JsonConvert.SerializeObject(svdata, serializeOption);
