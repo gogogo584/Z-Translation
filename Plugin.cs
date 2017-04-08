@@ -115,21 +115,21 @@ namespace ZTranslation
 								// Furniture names
 								foreach (var x in svdata.api_data.api_mst_furniture)
 								{
-									if (x.api_title != null) x.api_title = getTranslation("FurnitureName", x.api_title.ToString());
-									if (x.api_description != null) x.api_description = getTranslation("FurnitureDescription", x.api_description.ToString());
+									if (x.api_title != null) x.api_title = getTranslation("Furniture", x.api_title.ToString());
+									if (x.api_description != null) x.api_description = getTranslation("Furniture", x.api_description.ToString());
 								}
 
 								// Useitem names
 								foreach (var x in svdata.api_data.api_mst_useitem)
 								{
-									if (x.api_name != null) x.api_name = getTranslation("UseItemName", x.api_name.ToString());
-									if (x.api_description != null) x.api_description[0] = getTranslation("UseItemDescription", x.api_description[0].ToString());
+									if (x.api_name != null) x.api_name = getTranslation("UseItem", x.api_name.ToString());
+									if (x.api_description != null) x.api_description[0] = getTranslation("UseItem", x.api_description[0].ToString());
 								}
 								// Payitem names
 								foreach (var x in svdata.api_data.api_mst_payitem)
 								{
-									if (x.api_name != null) x.api_name = getTranslation("PayItemName", x.api_name.ToString());
-									if (x.api_description != null) x.api_description = getTranslation("PayItemDescription", x.api_description.ToString());
+									if (x.api_name != null) x.api_name = getTranslation("PayItem", x.api_name.ToString());
+									if (x.api_description != null) x.api_description = getTranslation("PayItem", x.api_description.ToString());
 								}
 
 								// MapArea
@@ -141,6 +141,13 @@ namespace ZTranslation
 									if (x.api_name != null) x.api_name = getTranslation("MapArea", x.api_name.ToString());
 									if (x.api_opetext != null) x.api_opetext = getTranslation("MapArea", x.api_opetext.ToString());
 									if (x.api_infotext != null) x.api_infotext = getTranslation("MapArea", x.api_infotext.ToString());
+								}
+
+								// Expedition
+								foreach (var x in svdata.api_data.api_mst_mission)
+								{
+									if (x.api_name != null) x.api_name = getTranslation("Expedition", x.api_name.ToString());
+									if (x.api_details != null) x.api_details = getTranslation("Expedition", x.api_details.ToString());
 								}
 							}
 							raw_content = JsonConvert.SerializeObject(svdata, serializeOption);
@@ -227,13 +234,11 @@ namespace ZTranslation
 
 			RemoteLoader("ShipGetMessage", "ShipGetMessage.xml");
 			RemoteLoader("EquipmentInfo", "EquipmentInfo.xml");
-			RemoteLoader("FurnitureName", "FurnitureName.xml");
-			RemoteLoader("FurnitureDescription", "FurnitureDescription.xml");
-			RemoteLoader("UseItemName", "UseItemName.xml");
-			RemoteLoader("UseItemDescription", "UseItemDescription.xml");
-			RemoteLoader("PayItemName", "PayItemName.xml");
-			RemoteLoader("PayItemDescription", "PayItemDescription.xml");
+			RemoteLoader("Furniture", "Furniture.xml");
+			RemoteLoader("UseItem", "UseItem.xml");
+			RemoteLoader("PayItem", "PayItem.xml");
 			RemoteLoader("MapArea", "MapArea.xml");
+			RemoteLoader("Expedition", "Expedition.xml");
 		}
 
 		private static string TranslationsDir => Path.Combine(

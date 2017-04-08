@@ -1,6 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Texts Version="1.0.0">
 	<Text>
+		<JP-Name>高速修復材</JP-Name>
+		<TR-Name>고속수복재</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>高速建造材</JP-Name>
+		<TR-Name>고속건조재</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>開発資材</JP-Name>
+		<TR-Name>개발자재</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>改修資材</JP-Name>
+		<TR-Name>개수자재</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>家具箱（小）</JP-Name>
+		<TR-Name>가구함 (소)</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>家具箱（中）</JP-Name>
+		<TR-Name>가구함 (중)</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>家具箱（大）</JP-Name>
+		<TR-Name>가구함 (대)</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>燃料</JP-Name>
+		<TR-Name>연료</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>弾薬</JP-Name>
+		<TR-Name>탄약</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>鋼材</JP-Name>
+		<TR-Name>강재</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ボーキサイト</JP-Name>
+		<TR-Name>보크사이트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>家具コイン</JP-Name>
+		<TR-Name>가구 코인</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ドック開放キー</JP-Name>
+		<TR-Name>독 개방 키</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>応急修理要員</JP-Name>
+		<TR-Name>응급 수리 요원</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>応急修理女神</JP-Name>
+		<TR-Name>응급 수리 여신</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>特注家具職人</JP-Name>
+		<TR-Name>특주 가구 장인</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>母港拡張</JP-Name>
+		<TR-Name>모항 확장</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>給糧艦「間宮」</JP-Name>
+		<TR-Name>보급함 「마미야」</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>書類一式＆指輪</JP-Name>
+		<TR-Name>서류&amp;반지</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>艦娘からのチョコ</JP-Name>
+		<TR-Name>칸무스에게 받은 쵸콜렛</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>勲章</JP-Name>
+		<TR-Name>훈장</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>改装設計図</JP-Name>
+		<TR-Name>개장설계도</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>給糧艦「伊良湖」</JP-Name>
+		<TR-Name>보급함 「이라코」</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>プレゼント箱</JP-Name>
+		<TR-Name>선물 상자</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>甲種勲章</JP-Name>
+		<TR-Name>갑종 훈장</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>菱餅</JP-Name>
+		<TR-Name>히시모치</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>司令部要員</JP-Name>
+		<TR-Name>사령부요원</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>補強増設</JP-Name>
+		<TR-Name>보강증설</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>試製甲板カタパルト</JP-Name>
+		<TR-Name>시제 갑판 캐터펄트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>戦闘糧食</JP-Name>
+		<TR-Name>전투식량</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>洋上補給</JP-Name>
+		<TR-Name>해상보급</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>秋刀魚</JP-Name>
+		<TR-Name>꽁치</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>秋刀魚の缶詰</JP-Name>
+		<TR-Name>꽁치 통조림</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>熟練搭乗員</JP-Name>
+		<TR-Name>숙련승무원</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>ネ式エンジン</JP-Name>
+		<TR-Name>네식 엔진</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>お飾り材料</JP-Name>
+		<TR-Name>장식 재료</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>設営隊</JP-Name>
+		<TR-Name>설영대</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>新型航空機設計図</JP-Name>
+		<TR-Name>신형 항공기 설계도</TR-Name>
+	</Text>
+	<Text>
 		<JP-Name>入渠時間を短縮できる。</JP-Name>
 		<TR-Name>입거 시간을 단축할 수 있다.</TR-Name>
 	</Text>
