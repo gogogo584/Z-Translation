@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Extensions.cs" />
+    <Compile Include="Models\HTTPRequest.cs" />
     <Compile Include="Models\ModifyProxy.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\SafeTcpServer.cs" />

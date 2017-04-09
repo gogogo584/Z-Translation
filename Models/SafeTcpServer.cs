@@ -15,9 +15,7 @@ namespace ZTranslation.Models
 			base.Stop();
 
 			foreach (var socket in ConnectedSockets.Values.ToArray())
-			{
 				this.CloseSocket(socket);
-			}
 		}
 
 		public new void Stop()

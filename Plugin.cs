@@ -31,7 +31,7 @@ namespace ZTranslation
 	[ExportMetadata("Guid", "1E32327A-5D83-4722-9859-3366D86C3FFF")]
 	[ExportMetadata("Title", "Z-Translation")]
 	[ExportMetadata("Description", "Z-Translation for KanColleViewer")]
-	[ExportMetadata("Version", "0.0.1")]
+	[ExportMetadata("Version", "0.0.1.1")]
 	[ExportMetadata("Author", "WolfgangKurz")] // wolfgangkurzdev@gmail.com
 	[ExportMetadata("AuthorURL", "http://swaytwig.com/")]
 	public class Plugin : IPlugin
@@ -242,7 +242,20 @@ namespace ZTranslation
 			if (Server.InitListenException != null)
 				throw Server.InitListenException;
 
-			Grabacr07.KanColleViewer.Application.Current.Exit += (s, e) => Server.Shutdown();
+			Grabacr07.KanColleViewer.Application.Current.Exit += (s, e) =>
+			{
+				Server.Shutdown();
+
+				new Thread(() =>
+				{
+					try
+					{
+						Thread.Sleep(3000);
+						Environment.Exit(0);
+					}
+					catch { }
+				}).Start();
+			};
 		}
 
 		private ConcurrentDictionary<string, XmlTranslator> Translators { get; set; }
@@ -394,6 +407,34 @@ namespace ZTranslation
 				}).Start();
 			}
 			public virtual string GetTranslation(string Name) => table.ContainsKey(Name) ? table[Name] : null;
+		}
+
+		// Check Update
+		public static string CheckUpdate()
+		{
+			Stream stream = HTTPRequest.Request("https://raw.githubusercontent.com/WolfgangKurz/Z-Translation/master/version.txt");
+			if (stream == null) return "";
+
+			try
+			{
+				StreamReader reader = new StreamReader(stream);
+
+				string ver = reader.ReadToEnd();
+				if (ver != PluginMeta("Version"))
+					return ver;
+			}
+			catch { }
+
+			return "";
+		}
+
+		// Plugin's metadata
+		public static string PluginMeta(string Name)
+		{
+			Type type = typeof(Plugin);
+			var attrs = type.GetCustomAttributes(typeof(ExportMetadataAttribute), true) as ExportMetadataAttribute[];
+			var attr = attrs.Where(x => x.Name == Name).First();
+			return attr.Value as string;
 		}
 	}
 }
