@@ -230,6 +230,15 @@ namespace ZTranslation
 
 				return data; // Encoding.UTF8.GetBytes(sv_data);
 			};
+
+			string ver = CheckUpdate();
+			if(ver!=null && ver.Length > 0)
+			{
+				var message = string.Format("-= Z-Translation =-\n\nNew version {0} has released.", ver);
+				System.Windows.MessageBox.Show(message, "Z-Translation", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
+			}
+
+			// Disable auto-translations
 			KanColleSettings.EnableTranslations.Value = false;
 			KanColleClient.Current.Translations.EnableTranslations = false;
 
