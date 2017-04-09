@@ -26,3 +26,4 @@
 - ![Translation in Expedition list](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/6.png)
 - ![Translation in Sortie screen](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/7.png)
 - ![Translation in Quest list](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/8.png)
+- ![Translation in Remodel screen](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/9.png)
