@@ -190,7 +190,7 @@ namespace ZTranslation
 									if (n_type == 1) // Ship
 									{
 										if (x.api_name != null) x.api_name = getTranslation("ShipName", x.api_name.ToString());
-										if (x.api_info != null) x.api_info = getTranslation("ShipLibraryText", x.api_index_no.ToString());
+										if (x.api_sinfo != null) x.api_sinfo = getTranslation("ShipLibraryText", x.api_index_no.ToString());
 									}
 									else if (n_type == 2) // Equipment
 									{
