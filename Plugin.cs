@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Security.Cryptography;
 using System.Net;
 using System.Web;
-using System.Xml;
 using System.IO;
 using System.Threading;
 
@@ -31,12 +28,70 @@ namespace ZTranslation
 	[ExportMetadata("Guid", "1E32327A-5D83-4722-9859-3366D86C3FFF")]
 	[ExportMetadata("Title", "Z-Translation")]
 	[ExportMetadata("Description", "Z-Translation for KanColleViewer")]
-	[ExportMetadata("Version", "0.0.1.1")]
+	[ExportMetadata("Version", "0.0.1.2")]
 	[ExportMetadata("Author", "WolfgangKurz")] // wolfgangkurzdev@gmail.com
 	[ExportMetadata("AuthorURL", "http://swaytwig.com/")]
 	public class Plugin : IPlugin
 	{
 		internal static int ProxyPort => 40729;
+
+		private ConcurrentDictionary<string, XmlTranslator> Translators { get; set; }
+		private void PrepareTranslators()
+		{
+			Action<string, string, XmlTranslator> RemoteLoader = (name, url, translator) =>
+			{
+				var urlBase = "https://raw.githubusercontent.com/WolfgangKurz/Z-Translation/master/Translations/";
+				new Thread(() =>
+				{
+					string xml = "";
+
+					try
+					{
+						HttpWebRequest rq = WebRequest.Create(urlBase + url) as HttpWebRequest;
+						rq.Timeout = 5000;
+						HttpWebResponse response = rq.GetResponse() as HttpWebResponse;
+
+						using (var reader = new StreamReader(response.GetResponseStream()))
+							xml = reader.ReadToEnd();
+
+						translator.Load(xml, "/Texts/Text");
+						Translators.TryAdd(name, translator);
+					}
+					catch { }
+				}).Start();
+			};
+
+			Translators = new ConcurrentDictionary<string, XmlTranslator>();
+
+			// XML based loader (Z-Translation datas)
+			RemoteLoader("ShipName", "ShipName.xml", new XmlTranslator());
+			RemoteLoader("ShipType", "ShipType.xml", ShipTypeTranslator.Instance);
+			RemoteLoader("ShipGetMessage", "ShipGetMessage.xml", new XmlTranslator());
+			RemoteLoader("ShipLibraryText", "ShipLibraryText.xml", new XmlTranslator());
+			RemoteLoader("EquipmentName", "EquipmentName.xml", new XmlTranslator());
+			RemoteLoader("EquipmentType", "EquipmentType.xml", new XmlTranslator());
+			RemoteLoader("EquipmentInfo", "EquipmentInfo.xml", new XmlTranslator());
+			RemoteLoader("Furniture", "Furniture.xml", new XmlTranslator());
+			RemoteLoader("UseItem", "UseItem.xml", new XmlTranslator());
+			RemoteLoader("PayItem", "PayItem.xml", new XmlTranslator());
+			RemoteLoader("MapArea", "MapArea.xml", new XmlTranslator());
+			RemoteLoader("Expedition", "Expedition.xml", new XmlTranslator());
+			RemoteLoader("BGM", "BGM.xml", new XmlTranslator());
+
+			// Prepare KC3 quest datas
+			QuestTranslator.Instance.Prepare();
+		}
+
+		private IEnumerable<BinaryPatcher> BinaryPatchers { get; set; }
+		private void PrepareBinaryPatchers()
+		{
+			var patchers = new List<BinaryPatcher>();
+			patchers.Add(FontPatcher.Instance);
+			patchers.Add(TitleMainPatcher.Instance);
+			patchers.Add(PortMainPatcher.Instance);
+
+			BinaryPatchers = patchers;
+		}
 
 		public void Initialize()
 		{
@@ -50,27 +105,13 @@ namespace ZTranslation
 
 			ModifyProxy.BeforeResponse = (session, data) =>
 			{
-				#region Font patch
-				if (session.Request.PathAndQuery.StartsWith("/kcs/resources/swf/font.swf"))
-				{
-					var origin_hash = new byte[] { 0xca, 0xf9, 0xa2, 0x30, 0xfe, 0x46, 0x8a, 0xfc, 0x3d, 0x23, 0x5b, 0xb8, 0xd2, 0xd8, 0x7e, 0x89 };
-					var origin_length = 2232291;
-
-					if (data.Length != origin_length) return data;
-
-					byte[] hash;
-					using (MD5 md5 = MD5.Create()) hash = md5.ComputeHash(data);
-					if (!hash.SequenceEqual(origin_hash)) return data;
-
-					return File.ReadAllBytes(
-						Path.Combine(
-							Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location),
-							"font.swf"
-						)
-					);
-				}
+				#region swf patch
+				foreach (var patcher in BinaryPatchers)
+					if (patcher.Patch(session, ref data))
+						return data;
 				#endregion
 
+				#region Patch HTTP requests
 				try
 				{
 					Func<string, string, string> getTranslation = (x, y) =>
@@ -211,6 +252,8 @@ namespace ZTranslation
 							{
 								foreach (var x in svdata.api_data.api_list)
 								{
+									if (x.GetType() == typeof(JValue)) continue;
+
 									var id = x.api_no.ToString();
 									var output = QuestTranslator.Instance.GetTranslation("Name" + id);
 									if (output != null)
@@ -227,23 +270,30 @@ namespace ZTranslation
 					}
 				}
 				catch { }
+				#endregion
 
 				return data; // Encoding.UTF8.GetBytes(sv_data);
 			};
 
-			string ver = CheckUpdate();
-			if(ver!=null && ver.Length > 0)
+			string ver = Common.CheckUpdate();
+			if (ver != null && ver.Length > 0)
 			{
-				var message = string.Format("-= Z-Translation =-\n\nNew version {0} has released.", ver);
-				System.Windows.MessageBox.Show(message, "Z-Translation", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
+				var message = string.Format("-= Z-Translation =-\n\nNew version {0} has released.\n\nOK: Open Update Webpage\nCancel: Dismiss", ver);
+				var output = System.Windows.MessageBox.Show(message, "Z-Translation", System.Windows.MessageBoxButton.OKCancel, System.Windows.MessageBoxImage.Information);
+
+				if(output== System.Windows.MessageBoxResult.OK)
+					System.Diagnostics.Process.Start(Common.UpdateWebpage);
 			}
 
 			// Disable auto-translations
 			KanColleSettings.EnableTranslations.Value = false;
 			KanColleClient.Current.Translations.EnableTranslations = false;
 
+			// Prepare Translator, Binary Patcher
 			PrepareTranslators();
+			PrepareBinaryPatchers();
 
+			// Start LocalProxy
 			var Server = new SafeTcpServer(ProxyPort, false);
 			Server.Start(ModifyProxy.CreateProxy);
 
@@ -254,7 +304,6 @@ namespace ZTranslation
 			Grabacr07.KanColleViewer.Application.Current.Exit += (s, e) =>
 			{
 				Server.Shutdown();
-
 				new Thread(() =>
 				{
 					try
@@ -265,185 +314,6 @@ namespace ZTranslation
 					catch { }
 				}).Start();
 			};
-		}
-
-		private ConcurrentDictionary<string, XmlTranslator> Translators { get; set; }
-		private void PrepareTranslators()
-		{
-			Action<string, string, XmlTranslator> RemoteLoader = (name, url, translator) =>
-			{
-				var urlBase = "https://raw.githubusercontent.com/WolfgangKurz/Z-Translation/master/Translations/";
-				new Thread(() =>
-				{
-					string xml = "";
-
-					try
-					{
-						HttpWebRequest rq = WebRequest.Create(urlBase + url) as HttpWebRequest;
-						rq.Timeout = 5000;
-						HttpWebResponse response = rq.GetResponse() as HttpWebResponse;
-
-						using (var reader = new StreamReader(response.GetResponseStream()))
-							xml = reader.ReadToEnd();
-
-						translator.Load(xml, "/Texts/Text");
-						Translators.TryAdd(name, translator);
-					}
-					catch { }
-				}).Start();
-			};
-
-			Translators = new ConcurrentDictionary<string, XmlTranslator>();
-
-			// XML based loader (Z-Translation datas)
-			RemoteLoader("ShipName", "ShipName.xml", new XmlTranslator());
-			RemoteLoader("ShipType", "ShipType.xml", ShipTypeTranslator.Instance);
-			RemoteLoader("ShipGetMessage", "ShipGetMessage.xml", new XmlTranslator());
-			RemoteLoader("ShipLibraryText", "ShipLibraryText.xml", new XmlTranslator());
-			RemoteLoader("EquipmentName", "EquipmentName.xml", new XmlTranslator());
-			RemoteLoader("EquipmentType", "EquipmentType.xml", new XmlTranslator());
-			RemoteLoader("EquipmentInfo", "EquipmentInfo.xml", new XmlTranslator());
-			RemoteLoader("Furniture", "Furniture.xml", new XmlTranslator());
-			RemoteLoader("UseItem", "UseItem.xml", new XmlTranslator());
-			RemoteLoader("PayItem", "PayItem.xml", new XmlTranslator());
-			RemoteLoader("MapArea", "MapArea.xml", new XmlTranslator());
-			RemoteLoader("Expedition", "Expedition.xml", new XmlTranslator());
-			RemoteLoader("BGM", "BGM.xml", new XmlTranslator());
-
-			// Prepare KC3 quest datas
-			QuestTranslator.Instance.Prepare();
-		}
-
-
-		// XML based data loader (Basic class)
-		private class XmlTranslator
-		{
-			protected Dictionary<string, string> table;
-
-			public XmlTranslator()
-			{
-				table = new Dictionary<string, string>();
-			}
-			public XmlTranslator(string xmlPath, string textSelector = "/Texts/Text") : this()
-			{
-				this.Load(xmlPath, textSelector);
-			}
-
-			protected virtual void ValueProcessor(ref string jp, ref string tr, XmlNode node) { }
-
-			private string ValueAdjust(string Value) => Value
-				.Replace("<br />", "<br>")
-				.Replace("&amp;", "&");
-			private void LoadTexts(XmlDocument doc, string textSelector)
-			{
-				var nodes = doc.SelectNodes(textSelector);
-				foreach (XmlNode node in nodes)
-				{
-					var jp = ValueAdjust(node["JP-Name"]?.InnerXml);
-					var tr = ValueAdjust(node["TR-Name"]?.InnerXml);
-					ValueProcessor(ref jp, ref tr, node);
-
-					if (table.ContainsKey(jp)) continue;
-					table.Add(jp, tr);
-				}
-			}
-
-			public void Load(string xmlPath, string textSelector)
-			{
-				XmlDocument doc = new XmlDocument();
-				if(xmlPath.StartsWith("<?")) doc.LoadXml(xmlPath);
-				else doc.Load(xmlPath);
-				LoadTexts(doc, textSelector);
-			}
-
-			public virtual string GetTranslation(string Name) => table.ContainsKey(Name) ? table[Name] : Name;
-		}
-
-		// XML based loader (Z-Translation datas)
-		private class ShipTypeTranslator : XmlTranslator
-		{
-			public static ShipTypeTranslator Instance { get; } = new ShipTypeTranslator();
-
-			protected override void ValueProcessor(ref string jp, ref string tr, XmlNode node)
-			{
-				int id = -1;
-				int.TryParse(node["ID"]?.InnerText, out id);
-
-				jp = id.ToString();
-				if (id == 8) tr = "고속전함";
-				else if (id == 9) tr = "전함";
-			}
-		}
-
-		// JSON based loader (KC3)
-		private class QuestTranslator
-		{
-			private ConcurrentDictionary<string, string> table { get; set; }
-			public static QuestTranslator Instance { get; } = new QuestTranslator();
-
-			public QuestTranslator()
-			{
-				this.table = new ConcurrentDictionary<string, string>();
-			}
-
-			public void Prepare()
-			{
-				var dataUrl = "https://raw.githubusercontent.com/KC3Kai/kc3-translations/master/data/kr/quests.json";
-				new Thread(() =>
-				{
-					string data = "";
-
-					try
-					{
-						HttpWebRequest rq = WebRequest.Create(dataUrl) as HttpWebRequest;
-						rq.Timeout = 5000;
-						HttpWebResponse response = rq.GetResponse() as HttpWebResponse;
-
-						using (var reader = new StreamReader(response.GetResponseStream()))
-							data = reader.ReadToEnd();
-
-						var svdata = JObject.Parse(data);
-						foreach (var quest in svdata.Children<JProperty>())
-						{
-							var id = -1;
-							int.TryParse(quest.Name, out id);
-
-							this.table.TryAdd("Name" + id.ToString(), quest.Value["name"].ToString());
-							this.table.TryAdd("Detail" + id.ToString(), quest.Value["desc"].ToString());
-						}
-					}
-					catch { }
-				}).Start();
-			}
-			public virtual string GetTranslation(string Name) => table.ContainsKey(Name) ? table[Name] : null;
-		}
-
-		// Check Update
-		public static string CheckUpdate()
-		{
-			Stream stream = HTTPRequest.Request("https://raw.githubusercontent.com/WolfgangKurz/Z-Translation/master/version.txt");
-			if (stream == null) return "";
-
-			try
-			{
-				StreamReader reader = new StreamReader(stream);
-
-				string ver = reader.ReadToEnd();
-				if (ver != PluginMeta("Version"))
-					return ver;
-			}
-			catch { }
-
-			return "";
-		}
-
-		// Plugin's metadata
-		public static string PluginMeta(string Name)
-		{
-			Type type = typeof(Plugin);
-			var attrs = type.GetCustomAttributes(typeof(ExportMetadataAttribute), true) as ExportMetadataAttribute[];
-			var attr = attrs.Where(x => x.Name == Name).First();
-			return attr.Value as string;
 		}
 	}
 }
