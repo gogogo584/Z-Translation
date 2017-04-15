@@ -82,4 +82,17 @@ namespace ZTranslation.Models
 			base.original_length = 1243247;
 		}
 	}
+	internal class OrganizeMainPatcher : BinaryPatcher
+	{
+		public static OrganizeMainPatcher Instance { get; } = new OrganizeMainPatcher();
+
+		protected override string match_query => "/kcs/scenes/OrganizeMain.swf";
+		protected override string patched_file => Path.Combine(Common.PatchedFilesDirectory, "OrganizeMain.swf");
+
+		public OrganizeMainPatcher() : base()
+		{
+			base.original_hash = new byte[] { 0xff, 0x7f, 0x2d, 0x6a, 0x22, 0x42, 0xd9, 0x7c, 0x03, 0x47, 0xb4, 0xb8, 0xcc, 0xed, 0xa6, 0x40 };
+			base.original_length = 1428799;
+		}
+	}
 }

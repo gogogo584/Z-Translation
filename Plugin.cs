@@ -89,6 +89,7 @@ namespace ZTranslation
 			patchers.Add(FontPatcher.Instance);
 			patchers.Add(TitleMainPatcher.Instance);
 			patchers.Add(PortMainPatcher.Instance);
+			patchers.Add(OrganizeMainPatcher.Instance);
 
 			BinaryPatchers = patchers;
 		}
