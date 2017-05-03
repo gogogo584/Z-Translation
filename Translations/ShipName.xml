@@ -2256,4 +2256,88 @@
 		<JP-Name>熊野航改二</JP-Name>
 		<TR-Name>쿠마노 航改2</TR-Name>
 	</Text>
+	<Text>
+		<JP-Name>Гангут</JP-Name>
+		<TR-Name>강구트</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>Гангут два</JP-Name>
+		<TR-Name>강구트 два</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>Октябрьская революция</JP-Name>
+		<TR-Name>옥탸브리스카야 레발류찌야</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>占守</JP-Name>
+		<TR-Name>시무슈</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>占守改</JP-Name>
+		<TR-Name>시무슈改</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>国後</JP-Name>
+		<TR-Name>쿠나시리</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>国後改</JP-Name>
+		<TR-Name>쿠나시리改</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>択捉</JP-Name>
+		<TR-Name>에토로후</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>択捉改</JP-Name>
+		<TR-Name>에토로후改</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>春日丸</JP-Name>
+		<TR-Name>카스가마루</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>大鷹</JP-Name>
+		<TR-Name>타이요</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>大鷹改</JP-Name>
+		<TR-Name>타이요改</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>神威</JP-Name>
+		<TR-Name>카모이</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>神威改</JP-Name>
+		<TR-Name>카모이改</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>神威改母</JP-Name>
+		<TR-Name>카모이改母</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>軽母ヌ級改</JP-Name>
+		<TR-Name>경모 누급改</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>軽母ヌ級改 flagText</JP-Name>
+		<TR-Name>경모 누급改 flagText</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>護衛棲姫</JP-Name>
+		<TR-Name>호위서희</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>北端上陸姫</JP-Name>
+		<TR-Name>북단상륙희</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>北方水姫</JP-Name>
+		<TR-Name>북방수희</TR-Name>
+	</Text>
+	<Text>
+		<JP-Name>北方水姫-壊</JP-Name>
+		<TR-Name>북방수희-괴</TR-Name>
+	</Text>
 </Texts>
