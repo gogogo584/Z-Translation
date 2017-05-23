@@ -90,6 +90,7 @@ namespace ZTranslation
 			patchers.Add(TitleMainPatcher.Instance);
 			patchers.Add(PortMainPatcher.Instance);
 			patchers.Add(OrganizeMainPatcher.Instance);
+			patchers.Add(SupplyMainPatcher.Instance);
 
 			BinaryPatchers = patchers;
 		}
