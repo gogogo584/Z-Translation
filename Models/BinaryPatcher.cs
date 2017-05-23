@@ -91,8 +91,21 @@ namespace ZTranslation.Models
 
 		public OrganizeMainPatcher() : base()
 		{
-			base.original_hash = new byte[] { 0xff, 0x7f, 0x2d, 0x6a, 0x22, 0x42, 0xd9, 0x7c, 0x03, 0x47, 0xb4, 0xb8, 0xcc, 0xed, 0xa6, 0x40 };
-			base.original_length = 1428799;
+			base.original_hash = new byte[] { 0xd4, 0x20, 0xca, 0xc4, 0xa8, 0xf1, 0x8f, 0xbe, 0x46, 0xf6, 0x7c, 0xf3, 0x82, 0xb9, 0x3c, 0x84 };
+			base.original_length = 1428948;
+		}
+	}
+	internal class SupplyMainPatcher : BinaryPatcher
+	{
+		public static SupplyMainPatcher Instance { get; } = new SupplyMainPatcher();
+
+		protected override string match_query => "/kcs/scenes/SupplyeMain.swf";
+		protected override string patched_file => Path.Combine(Common.PatchedFilesDirectory, "SupplyeMain.swf");
+
+		public SupplyMainPatcher() : base()
+		{
+			base.original_hash = new byte[] { 0x84, 0xb9, 0xca, 0x41, 0x76, 0x02, 0x63, 0xbb, 0x47, 0x62, 0xad, 0x2b, 0xc2, 0x63, 0x14, 0xb4 };
+			base.original_length = 101430;
 		}
 	}
 }
