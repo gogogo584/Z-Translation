@@ -99,8 +99,8 @@ namespace ZTranslation.Models
 	{
 		public static SupplyMainPatcher Instance { get; } = new SupplyMainPatcher();
 
-		protected override string match_query => "/kcs/scenes/SupplyeMain.swf";
-		protected override string patched_file => Path.Combine(Common.PatchedFilesDirectory, "SupplyeMain.swf");
+		protected override string match_query => "/kcs/scenes/SupplyMain.swf";
+		protected override string patched_file => Path.Combine(Common.PatchedFilesDirectory, "SupplyMain.swf");
 
 		public SupplyMainPatcher() : base()
 		{
