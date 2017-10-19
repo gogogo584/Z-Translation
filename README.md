@@ -16,17 +16,21 @@
 2. 뷰어의 프록시 설정을 덮어쓰므로, 프록시를 사용하는 환경에서는 사용할 수 없습니다. (설정한 프록시가 무시됩니다.)
 3. 뷰어의 자동 번역 설정을 OFF로 하며, 수동으로 켤 경우 뷰어 표시에 문제가 발생할 수 있습니다.
 4. 뷰어의 "개수공창 윈도우"가 정상 작동하지 않게됩니다.
-5. 동봉된 "font.swf"는 맑은 고딕 폰트가 적용되었으며, 플러그인 dll와 같은 폴더 "Plugins"에 넣어야 합니다. 
+5. 동봉된 "Z-Translation" 폴더는 플러그인 dll와 같은 폴더 "Plugins"에 넣어야 합니다. 
 6. 플러그인 사용을 중지하려면 플러그인 dll 을 제거하고, 캐시를 비우면 됩니다.
 
+(일부 폰트는 맑은 고딕 폰트가 적용되었습니다.)
 
 ### Examples
-- ![Translation in Library](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/1.png)
-- ![Translation in Battle result](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/2.png)
-- ![Translation in New ship screen](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/3.png)
-- ![Translation in Furniture screen (in progress)](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/4.png)
-- ![Translation in MyItems screen](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/5.png)
-- ![Translation in Expedition list](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/6.png)
-- ![Translation in Sortie screen](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/7.png)
-- ![Translation in Quest list](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/8.png)
-- ![Translation in Remodel screen](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/9.png)
+![Translation in Port Screen](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/10.jpg)
+![Translation in Organization Screen](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/11.jpg)
+![Translation in Supply Screen](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/12.jpg)
+![Translation in Library](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/1.jpg)
+![Translation in Battle result](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/2.jpg)
+![Translation in New ship screen](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/3.jpg)
+![Translation in Furniture screen (in progress)](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/4.jpg)
+![Translation in MyItems screen](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/5.jpg)
+![Translation in Expedition list](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/6.jpg)
+![Translation in Sortie screen](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/7.jpg)
+![Translation in Quest list](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/8.jpg)
+![Translation in Remodel screen](https://github.com/WolfgangKurz/Z-Translation/blob/master/images/9.jpg)
