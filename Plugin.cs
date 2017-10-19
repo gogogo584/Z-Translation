@@ -28,7 +28,7 @@ namespace ZTranslation
 	[ExportMetadata("Guid", "1E32327A-5D83-4722-9859-3366D86C3FFF")]
 	[ExportMetadata("Title", "Z-Translation")]
 	[ExportMetadata("Description", "Z-Translation for KanColleViewer")]
-	[ExportMetadata("Version", "0.0.1.2")]
+	[ExportMetadata("Version", "0.0.1.4")]
 	[ExportMetadata("Author", "WolfgangKurz")] // wolfgangkurzdev@gmail.com
 	[ExportMetadata("AuthorURL", "http://swaytwig.com/")]
 	public class Plugin : IPlugin
